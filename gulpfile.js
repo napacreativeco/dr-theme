@@ -13,7 +13,7 @@ const concat = require('gulp-concat');
    Build Styles
    ========================= */
 function buildStyles() {
-  return gulp.src('./src/scss/app.scss')
+  return gulp.src('./src/scss/index.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       overrideBrowserslist: ["last 2 versions"]

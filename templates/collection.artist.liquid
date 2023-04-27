@@ -1,0 +1,5 @@
+{% for artist in shop.metaobjects.artist.values %}
+
+    <img src="{{ artist.images[0] | img_url:700x }}" alt="{{ artist.name }}" />
+
+{% endfor %}

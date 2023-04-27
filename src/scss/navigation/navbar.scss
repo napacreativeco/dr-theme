@@ -1,0 +1,20 @@
+.navbar {
+
+    .navbar--row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .links {
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 20%;
+        }
+
+    }
+
+}

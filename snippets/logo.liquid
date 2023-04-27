@@ -1,0 +1,9 @@
+{% if settings.use_logo %}
+<a id="logo" href="/" title="{{ 'Dais Records' | escape }}">
+  {{ 'logo.png' | asset_url | img_tag: shop.name }}
+</a>
+{% else %}
+<a id="site-title" href="/" title="{{ 'Dais Records' | escape }}">
+  {{ shop.name }}
+</a>
+{% endif %}
