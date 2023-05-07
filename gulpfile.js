@@ -6,7 +6,7 @@ const { series } = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
+const minify = require('gulp-minify');
  
 
 /* =========================
@@ -31,8 +31,8 @@ exports.buildStyles = buildStyles;
    Build Scripts
    ========================= */
 function buildScripts() {
-    return gulp.src(['./src/js/**/*.js',])
-      .pipe(concat('compiled.js'))
+    return gulp.src(['./src/js/index.js',])
+      .pipe(minify())
       .pipe(gulp.dest('./assets/'));
 };
 

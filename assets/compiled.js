@@ -1,4 +1,3 @@
-
 (function($) {
 
     // //////////////////////////////
@@ -72,8 +71,7 @@
         $(this).find('.more').css('transform', 'rotate(45deg)');
 
         $(this).addClass('opened');
-    })
-
+    });
 
  
 
