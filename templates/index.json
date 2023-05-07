@@ -6,6 +6,7 @@
         "8a73aba1-4b2e-4f8f-9f46-fa52a0c35ea2": {
           "type": "slide",
           "settings": {
+            "preorder": true,
             "title": "Test mere",
             "subtitle": "",
             "link-destination": "",
@@ -15,6 +16,7 @@
         "4564b56c-d57f-47b7-a4b9-9945becbf229": {
           "type": "slide",
           "settings": {
+            "preorder": false,
             "title": "Test two",
             "subtitle": "",
             "link-destination": "",
