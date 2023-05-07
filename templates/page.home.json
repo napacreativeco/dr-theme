@@ -1,11 +1,12 @@
 {
-    "name": "Homepage",
-    "sections": {
-      "main": {
-        "type": "hero-slideshow"
+  "sections": {
+    "main": {
+      "type": "hero-slideshow",
+      "settings": {
       }
-    },
-    "order": [
-      "main"
-    ]
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
