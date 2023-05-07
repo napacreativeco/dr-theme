@@ -11,46 +11,29 @@
 
 {% schema %}
     {
-      "name": "Hero Slideshow",
+      "name": "Slideshow",
       "tag": "section",
-      "class": "hero-slideshow",
+      "class": "slideshow",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slideshow"
+        }
+      ],
       "blocks": [
-            {
-                "name": "Slide",
-                "type": "slide",
-                "settings": [
-                    {
-                        "type": "image_picker",
-                        "id": "image",
-                        "label": "Image"
-                    },
-                    {
-                        "type": "text",
-                        "id": "title",
-                        "label": "Artist Name"
-                    },
-                    {
-                        "type": "text",
-                        "id": "subtitle",
-                        "label": "Sub-Title"
-                    },
-                    {
-                        "type": "checkbox",
-                        "id": "preorder-status",
-                        "label": "Preorder?"
-                    },
-                    {
-                        "type": "url",
-                        "id": "link-destination",
-                        "label": "Link Destination"
-                    },
-                    {
-                        "type": "text",
-                        "id": "link-text",
-                        "label": "Link Text"
-                    }
-                ]
-            }
-        ]
+         {
+           "name": "Slide",
+           "type": "slide",
+           "settings": [
+             {
+               "type": "image_picker",
+               "id": "image",
+               "label": "Image"
+             }
+           ]
+         }
+       ]
     }
 {% endschema %}
+    

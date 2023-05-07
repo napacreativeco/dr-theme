@@ -1,6 +1,5 @@
 {
     "name": "Homepage",
-    "wrapper": "div#homepage",
     "sections": {
       "main": {
         "type": "hero-slideshow"
