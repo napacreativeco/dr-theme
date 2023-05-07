@@ -1,0 +1,11 @@
+{
+    "name": "Homepage",
+    "sections": {
+      "main": {
+        "type": "hero-slideshow"
+      }
+    },
+    "order": [
+      "main"
+    ]
+}
