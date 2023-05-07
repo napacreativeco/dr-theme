@@ -1,0 +1,63 @@
+{% comment %} 
+// Hero Slideshow
+// @ homepage
+{% endcomment %}
+
+<div class="main-carousel">
+  <div class="carousel-cell">...</div>
+  <div class="carousel-cell">...</div>
+  <div class="carousel-cell">...</div>
+</div>
+
+{% schema %}
+    {
+      "name": "Hero Slideshow",
+      "tag": "section",
+      "class": "hero-slideshow",
+      "settings": [
+            {
+                "type": "text",
+                "id": "test-text",
+                "label": "Test Text"
+            }
+        ],
+      "blocks": [
+            {
+                "name": "Slide",
+                "type": "slide",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Artist Name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtitle",
+                        "label": "Sub-Title"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "preorder-status",
+                        "label": "Preorder?"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link-destination",
+                        "label": "Link Destination"
+                    },
+                    {
+                        "type": "text",
+                        "id": "link-text",
+                        "label": "Link Text"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

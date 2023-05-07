@@ -1,1 +1,12 @@
-<a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money_without_trailing_zeros }})</a>
+<a href="/cart" title="Cart">
+    {{ 'CART' | escape }}
+    <span class="type-writer">
+        {% if cart.item_count < 10 and cart.item_count > 0 %}
+            [0{{ cart.item_count }}]
+        {% elsif cart.item_count < 1 %}
+            [{{ cart.item_count }}]
+        {% else %}
+            [{{ cart.item_count }}]
+        {% endif %}
+    </span>
+</a>

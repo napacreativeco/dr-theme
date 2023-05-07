@@ -26,8 +26,8 @@
   {{ content_for_header }}
 
   {{ 'style.scss.css' | asset_url | stylesheet_tag }}
-
   {{ 'index.css' | asset_url | stylesheet_tag }}
+  {{ 'typography.css' | asset_url | stylesheet_tag }}
 
   <!--[if lt IE 9]>
   <script src="{{ '//html5shiv.googlecode.com/svn/trunk/html5.js' }}"></script>
@@ -42,22 +42,31 @@
 
   <script src="{{ 'option_selection.js' | shopify_asset_url }}" async></script>
 
-  <script>jQuery('html').removeClass('no-js').addClass('js');</script>
 
   <link rel="stylesheet" href="{{ 'swiper.css' | asset_url }}" />
-
+  <script src="{{ 'jquery.min.js' | asset_url }}" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/9b03c3187b.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
   
-  <header>
-    {% render 'navbar' %}
-  </header>
+
+  {% render 'navbar' %}
+  {% render 'navbarmobile' %}
+ 
 
   <main role="main">
     {{ content_for_layout }}
   </main>
+
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+
+  <script src="{{ 'shop.js' | asset_url }}" async></script>
+  <script src="{{ 'compiled.js' | asset_url }}" async></script>
+
 
   <footer>
     {% render 'footer' %}
@@ -65,12 +74,6 @@
 
 
 
-  <script async src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script async src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <script src="{{ 'shop.js' | asset_url }}" async></script>
-  <script src="{{ 'compiled.js' | asset_url }}" async></script>
 </body>
 
 </html>

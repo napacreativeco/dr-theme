@@ -4,7 +4,7 @@
     "example_option": "option"
   },
   "presets": {
-    "Naked": {
+    "Standard": {
       "customer_layout": "theme",
       "example_option": "option"
     }

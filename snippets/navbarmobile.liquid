@@ -1,10 +1,23 @@
-<div class="navbar">
-    <div class="navbar--row">
+<div class="navbar-mobile">
+    <div class="navbar-mobile--row">
 
-        <div class="logo">
-            {% render 'dais-text' %}
+        <div class="menu-button-holder">
+            <div class="menu-button">
+                <span>Menu</span>
+            </div>
         </div>
 
+        <div class="logo">
+            {% render 'dais-head' %}
+        </div>
+
+        <div class="cart">
+            {% render 'cart-count' %}
+        </div>
+
+    </div>
+
+    <div class="navbar-mobile--dropdown">
         <div class="links">
             <nav role="navigation">
                 <ul>
@@ -34,15 +47,15 @@
                             
                         {% endif %}
 
-                        <li data-title="{{ link.title }}" class="nav-link {% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown {% else %} no-dropdown {% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
+                        <li data-title="{{ link.title }}" class="nav-link {% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-mobile-dropdown {% else %} no-dropdown {% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
                             
-                            <a  class="submenu-main-link {{ link.title }}" href="{{ link.url }}">
+                            <a  class="mobile-submenu-main-link {{ link.title }}" href="{{ link.url }}">
                                 {{ link.title }}{% if has_sub_menu or has_sub_categories %} <span class="more">+</span>{% endif %}
                             </a> 
                             
                             {% if has_sub_menu or has_sub_categories %}
 
-                                <ul class="submenu" data-menu="{{ link.title }}">
+                                <ul class="mobile-submenu" data-menu="{{ link.title }}">
                                     {% if has_sub_menu %}
 
                                         {% for l in linklists[child_list_handle].links %}
@@ -70,15 +83,6 @@
                 </ul>
             </nav>
         </div>
-
-        <div class="cart">
-            {% render 'cart-count' %}
-            <div class="logo--head">
-                {% render 'dais-head' %}
-            </div>
-        </div>
-
-
-
     </div>
 </div>
+
