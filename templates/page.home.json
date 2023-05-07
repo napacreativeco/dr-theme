@@ -2,8 +2,8 @@
     "name": "Homepage",
     "wrapper": "div#homepage",
     "sections": {
-      "main": {
-        "type": "hero-sliedshow"
+      "hero-slideshow": {
+        "type": "hero-slideshow"
       }
     },
     "order": [
