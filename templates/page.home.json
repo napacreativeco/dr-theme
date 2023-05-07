@@ -2,11 +2,11 @@
     "name": "Homepage",
     "wrapper": "div#homepage",
     "sections": {
-      "hero-slideshow": {
+      "main": {
         "type": "hero-slideshow"
       }
     },
     "order": [
-      "hero-slideshow"
+      "main"
     ]
 }
