@@ -4,9 +4,11 @@
 {% endcomment %}
 
 <div class="main-carousel">
-  <div class="carousel-cell">...</div>
-  <div class="carousel-cell">...</div>
-  <div class="carousel-cell">...</div>
+    {% for slide in section.settings.slide %}
+        <div class="carousel-cell">
+            {{ section.settings.title }}
+        </div>
+    {% endfor %}
 </div>
 
 {% schema %}
