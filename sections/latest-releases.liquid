@@ -5,8 +5,12 @@
             <div class="title">
                 <h3>{{ block.settings.title }}</h3>
                 <h4>{{ block.settings.artist }}</h4>
-
-                
+                <script>
+                    console.log({{ block.settings.release | json }})
+                </script>
+                {% for release in block.settings.release %}
+                    {{ release.name }}
+                {% endfor %}
             </div>
         {% endfor %}
 
@@ -37,7 +41,7 @@
              },
              {
                 "type": "product_list",
-                "id": "product",
+                "id": "release",
                 "label": "Product",
                 "limit": 1
             }
