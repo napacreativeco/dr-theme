@@ -32,13 +32,26 @@
       "settings": {
       }
     },
-    "latest-releases":{
+    "latest-releases": {
       "type": "latest-releases",
       "blocks": {
-
+        "6c78b36f-9cf6-4fe7-a9bd-71499af1679c": {
+          "type": "text",
+          "settings": {
+            "title": "Blending",
+            "artist": "High Vis",
+            "product_list": [
+              "high-vis-blending"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "6c78b36f-9cf6-4fe7-a9bd-71499af1679c"
+      ],
+      "settings": {
       }
     }
-
   },
   "order": [
     "hero-slideshow",
