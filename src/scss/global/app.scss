@@ -2,6 +2,11 @@ html {
     background-color: var(--white);
 }
 
+html, body {
+    font-family: Arial, sans-serif;
+    font-smooth: always;
+}
+
 /* Type Accents */
 .type-writer {
     font-family: var(--type-writer);

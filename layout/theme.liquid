@@ -76,6 +76,16 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            grabCursor: true,
+            on: {
+              init: function (e) {
+                $('.slider-index > .total').text( e.slides.length );
+              },
+              slideChange: function (e) {
+                $('.slider-index > .current').text( (swiper.realIndex + 1) );
+                $('.slider-index > .total').text( e.slides.length );
+              } 
+            }
         });
     })(jQuery);
 </script>

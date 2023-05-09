@@ -1,0 +1,43 @@
+<section class="latest-releases">
+    <div class="latest-releases--wrapper">
+
+        <div class="title">
+            <h3></h3>
+        </div>
+
+    </div>
+</section>
+
+
+{% schema %}
+    {
+      "name": "Latest Releases",
+      "tag": "section",
+      "class": "latest-releases",
+      "settings": [],
+      "blocks": [
+         {
+           "name": "Release",
+           "type": "text",
+           "settings": [
+            {
+               "type": "text",
+               "id": "title",
+               "label": "Title"
+             },
+             {
+               "type": "text",
+               "id": "artist",
+               "label": "Artist"
+             },
+             {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Products",
+                "limit": 6
+            }
+           ]
+         }
+       ]
+    }
+{% endschema %}

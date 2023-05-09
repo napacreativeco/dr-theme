@@ -4,34 +4,62 @@ Hero Slideshow
 {% endcomment %}
 
 <div id="hero-swiper" class="swiper">
-    <div class="swiper-wrapper">
-        {% for block in section.blocks %}
+  <div class="swiper-wrapper">
+      {% for block in section.blocks %}
 
-            <div class="swiper-slide">
-                <div class="image" style="background: url('{{ block.settings.image | img_url: '900x' }}'); background-size: cover; background-position: center center;">&nbsp;</div>
-                
-                <div class="slide-box">
-                    <div class="slide-box--wrapper">
+          <div class="swiper-slide">
+              <div class="image" style="background: url('{{ block.settings.image | img_url: '900x' }}'); background-size: cover; background-position: center center;">&nbsp;</div>
+              
+              <div class="slide-box">
+                  
+                  <div class="slide-box--wrapper">
 
-                        {% if block.settings.preorder %}
-                            <div class="preorder-status">
-                                {{ block.settings.preorder }}
-                            </div>
-                        {% endif %}
-                        <div class="title">
-                            <h2 class="hero-slide--title">{{ block.settings.title }}</h2>
-                        </div>  
+                      {% if block.settings.preorder == true %}
+                          <div class="preorder-status">
+                            <span class="text">Pre-order</span>
+                          </div>
+                      {% endif %}
 
-                    </div>
-                </div>
-                
-            </div>
+                      <div class="title">
+                        <h2 class="hero-slide--title">{{ block.settings.title }}</h2>
+                      </div>  
 
-        {% endfor %}
-    </div>
-    
-    <div class="swiper-pagination"></div>
+                      <div class="sub-title">
+                        <h3 class="hero-slide--subtitle">{{ block.settings.subtitle }}</h3>
+                      </div>  
+
+                      <div class="view-more">
+                          <a href="{{ block.settings.link-destination }}" title="{{ block.settings.link-text }}">
+                              {{ block.settings.link-text }}
+                          </a>
+                      </div>
+
+                      <div class="slider-index">
+                        <span class="current">1</span> / <span class="total"></span>
+                      </div>
+
+                      
+                  </div>
+
+                  
+              </div>
+              
+          </div>
+
+      {% endfor %}
+
+
+  </div>
+
+  <div class="swiper-pagination desktop"></div>
 </div>
+
+
+<script>
+  (function($) {
+
+  })(jQuery);
+</script>
 
 {% schema %}
     {
