@@ -1,9 +1,14 @@
 <section class="latest-releases">
     <div class="latest-releases--wrapper">
 
-        <div class="title">
-            <h3></h3>
-        </div>
+        {% for block in section.blocks %}
+            <div class="title">
+                <h3>{{ block.settings.title }}</h3>
+                <h4>{{ block.settings.artist }}</h4>
+
+                
+            </div>
+        {% endfor %}
 
     </div>
 </section>
@@ -32,9 +37,9 @@
              },
              {
                 "type": "product_list",
-                "id": "product_list",
-                "label": "Products",
-                "limit": 6
+                "id": "product",
+                "label": "Product",
+                "limit": 1
             }
            ]
          }
