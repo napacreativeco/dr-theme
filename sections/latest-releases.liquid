@@ -13,7 +13,8 @@
                 </script>
 
                 {% for album in block.settings.release %}
-                    {{ album.title }}
+                    <div class="title">{{ album.title }}</div>
+                    <div class="artist">{{ album.metafields.artist.name }}</div>
                 {% endfor %}
             </div>
         {% endfor %}
@@ -39,16 +40,6 @@
            "name": "Release",
            "type": "text",
            "settings": [
-            {
-               "type": "text",
-               "id": "title",
-               "label": "Title"
-             },
-             {
-               "type": "text",
-               "id": "artist",
-               "label": "Artist"
-             },
              {
                 "type": "product_list",
                 "id": "release",
