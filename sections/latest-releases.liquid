@@ -1,15 +1,18 @@
 <section class="latest-releases">
+
+    <header>
+        <h2>Latest Releases</h2>
+    </header>
     <div class="latest-releases--wrapper">
 
         {% for block in section.blocks %}
-            <div class="title">
-                <h3>{{ block.settings.title }}</h3>
-                <h4>{{ block.settings.artist }}</h4>
+            <div class="release">
                 <script>
                     console.log({{ block.settings.release | json }})
                 </script>
-                {% for release in block.settings.release %}
-                    {{ release.name }}
+
+                {% for album in block.settings.release %}
+                    {{ album.title }}
                 {% endfor %}
             </div>
         {% endfor %}
@@ -23,7 +26,13 @@
       "name": "Latest Releases",
       "tag": "section",
       "class": "latest-releases",
-      "settings": [],
+      "settings": [
+        {
+            "type": "text",
+            "id": "section-title",
+            "label": "Section Title"
+        }
+      ],
       "blocks": [
          {
            "name": "Release",
