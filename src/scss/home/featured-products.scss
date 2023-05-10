@@ -1,0 +1,28 @@
+section.featured-products {
+
+    /* Header */
+    header.featured-products--header {
+
+        padding: 60px 50px 20px 50px;
+
+        .featured-products--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            h2.title {
+                display: inline-block;
+                font-size: 24px;
+                text-transform: uppercase;
+                padding-bottom: 4px;
+                border-bottom: 2px solid var(--black);
+            }
+    
+            a.view-more {
+                text-transform: uppercase;
+            }
+
+        }
+
+    }
+}

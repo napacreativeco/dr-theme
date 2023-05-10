@@ -7,6 +7,10 @@ html, body {
     font-smooth: always;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
 /* Type Accents */
 .type-writer {
     font-family: var(--type-writer);

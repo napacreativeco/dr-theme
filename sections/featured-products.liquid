@@ -1,0 +1,45 @@
+<section class="featured-products">
+
+    <header class="featured-products--header">
+        <div class="featured-products--header-wrapper">
+            <h2 class="title">{{ section.settings.section_title }}</h2>
+            <a class="view-more" href="/collections/releases">View more</a>
+        </div>
+    </header>
+
+    </div>
+</div>
+
+{% schema %}
+    {
+      "name": "Featured Products",
+      "tag": "section",
+      "class": "featured-products",
+      "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title"
+        },
+        {
+            "type": "page",
+            "id": "link_destination",
+            "label": "Link Destination"
+        }
+      ],
+      "blocks": [
+         {
+           "name": "Product",
+           "type": "text",
+           "settings": [
+             {
+                "type": "product_list",
+                "id": "featured_product",
+                "label": "Featured Product",
+                "limit": 1
+            }
+           ]
+         }
+       ]
+    }
+{% endschema %}

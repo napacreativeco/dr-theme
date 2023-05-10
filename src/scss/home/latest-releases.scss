@@ -1,0 +1,100 @@
+section.latest-releases {
+
+    /* Header */
+    header.latest-releases--header {
+
+        padding: 60px 50px 20px 50px;
+
+        .latest-releases--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            h2.title {
+                display: inline-block;
+                font-size: 24px;
+                text-transform: uppercase;
+                padding-bottom: 4px;
+                border-bottom: 2px solid var(--black);
+            }
+    
+            a.view-more {
+                text-transform: uppercase;
+            }
+
+        }
+
+    }
+
+    /* Body */
+    .latest-releases--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 12px;
+
+        .release {
+
+            .image {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .artist h3 {
+                text-transform: uppercase;
+                padding-bottom: 6px;
+                font-size: 14px;
+            }
+
+            .title h4 {
+                color: var(--grey);
+                font-size: 10px;
+            }
+
+            .price {
+
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    section.latest-releases {
+        header.latest-releases--header {
+            padding: 60px 20px 20px 20px;
+
+            .latest-releases--header-wrapper {
+                h2.title {
+                    display: inline-block;
+                    font-size: 20px;
+                }
+            }
+
+        }
+        .latest-releases--wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 12px;
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .price {
+                display: none;
+            }
+        }
+    }
+}

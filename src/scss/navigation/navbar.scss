@@ -2,6 +2,12 @@
     width: 100%;
     max-width: 100%;
     text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: var(--white);
+    transition: all 0.3s;
 
     .navbar--row {
         display: grid;

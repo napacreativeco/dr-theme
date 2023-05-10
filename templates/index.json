@@ -52,10 +52,17 @@
       "settings": {
         "section_title": "Latest Releases"
       }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "blocks": {},
+      "settings": {}
     }
   },
+
   "order": [
     "hero-slideshow",
-    "latest-releases"
+    "latest-releases",
+    "featured-products"
   ]
 }
