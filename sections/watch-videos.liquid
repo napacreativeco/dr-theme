@@ -7,12 +7,12 @@
         </div>
     </header>
 
-    <div class="section--wrapper">
+    <div class="watch--wrapper">
         <ul>
             {% for video in blogs.videos.articles %}
                 <li>
-                    <div class="image">
-                        
+                    <div class="image" style="background: url('{{ video.featured_image | img_url: '900x'   }}'); background-size: cover;">
+                        &nbsp;
                     </div>
                     <div class="title">
                         <h3>{{ video.title }}</h3>

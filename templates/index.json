@@ -103,8 +103,7 @@
       }
     },
     "watch-videos": {
-      "type": "watch-videos",
-      "blocks": {}
+      "type": "watch-videos"
     }
   },
   "order": [

@@ -1,0 +1,18 @@
+.watch {
+
+    background: var(--black);
+    color: var(--white);
+
+    .watch--wrapper {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .image {
+                width: 100%;
+                height: 500px;
+            }
+        }
+    }
+
+}
