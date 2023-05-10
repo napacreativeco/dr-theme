@@ -1,16 +1,57 @@
 section.current-artists {
 
-    .current-artists--header {
+    /* Header */
+    header.current-artists--header {
+
+        padding: 60px 50px 40px 50px;
+
         .current-artists--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
 
             h2.title {
-
+                display: inline-block;
+                font-size: 34px;
+                text-transform: uppercase;
+                padding-bottom: 4px;
+                border-bottom: 2px solid var(--black);
             }
-
+    
             a.view-more {
-
+                text-transform: uppercase;
             }
-            
+            a.view-more:hover {
+                text-decoration: underline;
+            }
+
+        }
+
+    }
+
+    /* Artists */
+    .current-artists--wrapper {
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 50px;
+
+        ul.current-artists--list {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            min-width: 200%;
+            overflow-x: scroll;
+        }
+
+        li {
+
+            .image {
+                overflow: hidden;
+                aspect-ratio: 1/1;
+                width: 300px;
+                margin-bottom: 10px;
+            }
         }
     }
 

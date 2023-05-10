@@ -7,10 +7,38 @@
         </div>
     </header>
 
-    {% for product in collections.all.products %}
+    <div class="current-artists--wrapper">
 
-        {{ product.vendor }}
-    {% endfor %}
+        <ul class="current-artists--list">
+            {% for product in collections.all.products %}
+
+                {% case product.type %}
+                    {% when 'vinyl' %}
+
+                        <li class="artist">
+                            <div class="artist-wrapper">
+                                {% for collection in collections %}
+                                    {% if collection.title == product.vendor %}
+
+                                        <div class="image" style="background: url('{{ collection.image | img_url: '900x' }}'); background-size: cover; background-position: center center;">
+                                            &nbsp;
+                                        </div>
+
+                                        <div class="artist">
+                                            {{ collection.title }}
+                                        </div>
+                                        
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </li>
+
+                {% endcase %}
+            {% endfor %}
+        </ul>
+
+    </div>
 </section>
 
 {% schema %}
