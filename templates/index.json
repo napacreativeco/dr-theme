@@ -104,7 +104,10 @@
     },
     "watch-videos": {
       "type": "watch-videos",
-      "blocks": {}
+      "settings": {
+        "section_title": "Watch",
+        "link_destination": "artists"
+      }
     }
   },
   "order": [
