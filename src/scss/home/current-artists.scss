@@ -40,8 +40,13 @@ section.current-artists {
             display: flex;
             flex-direction: row;
             align-items: stretch;
-            min-width: 200%;
+            width: 100%;
             overflow-x: scroll;
+            padding: 0 0 20px 0;
+        }
+
+        ul.current-artists--list.active {
+            cursor: grabbing;
         }
 
         li {
@@ -49,11 +54,15 @@ section.current-artists {
             .image {
                 overflow: hidden;
                 aspect-ratio: 1/1;
-                width: 300px;
+                width: 350px;
                 margin-bottom: 10px;
             }
         }
+
+
+
     }
 
     
 }
+

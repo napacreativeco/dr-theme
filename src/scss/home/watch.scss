@@ -3,6 +3,10 @@
     background: var(--black);
     color: var(--white);
 
+    h2.title {
+        border-bottom: 2px solid var(--white) !important;
+    }
+
     .watch--wrapper {
         ul {
             display: grid;
@@ -13,6 +17,57 @@
                 height: 500px;
             }
         }
+
+        .artist h4 {
+            color: var(--grey-light);
+            font-size: 16px;
+        }
+
+        .title h3 {
+            padding-bottom: 6px;
+            font-size: 20px;
+            color: var(--white);
+        } 
+
+
+        .info {
+            padding: 20px;
+        }
     }
 
+
+
+}
+
+.videos-link {
+    width: 100%;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 40px 50px;
+    
+    a {
+        line-height: 0;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    span.right-dash {
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='21' viewBox='0 0 12 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10.5 10.5L1 20' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+    }
+}
+.videos-link:hover span.text {
+    text-decoration: underline;
+}
+.videos-link:hover span.right-dash {
+    margin-right: 10px;
 }

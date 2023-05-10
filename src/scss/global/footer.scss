@@ -1,0 +1,38 @@
+.footer {
+
+    background: var(--grey-mid);
+    
+    .footer--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 100px 60px 100px;
+
+        .left {
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .logo img {
+                width: 100%;
+                max-width: 34px;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+
+                a {
+                    color: var(--grey);
+                }
+
+            }
+
+        }
+
+    }
+
+}
