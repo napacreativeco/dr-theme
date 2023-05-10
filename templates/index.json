@@ -48,7 +48,8 @@
         "6c78b36f-9cf6-4fe7-a9bd-71499af1679c"
       ],
       "settings": {
-        "section_title": "Latest Releases"
+        "section_title": "Latest Releases",
+        "link_destination": ""
       }
     },
     "featured-products": {
@@ -90,10 +91,16 @@
       }
     },
     "large-nav": {
-      "type": "large-nav"
+      "type": "large-nav",
+      "settings": {
+      }
     },
     "current-artists": {
-      "type": "current-artists"
+      "type": "current-artists",
+      "settings": {
+        "section_title": "Current Artists",
+        "link_destination": "artists"
+      }
     }
   },
   "order": [
