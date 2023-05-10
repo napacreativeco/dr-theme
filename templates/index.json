@@ -53,6 +53,37 @@
     },
     "featured-products": {
       "type": "featured-products",
+      "blocks": {
+        "a63e6a68-45bc-40f9-af6f-2b1a0645ef51": {
+          "type": "text",
+          "settings": {
+            "featured_product": [
+              "gathering-swans"
+            ]
+          }
+        },
+        "42057cd0-a3d1-4632-bd75-1c1a3129db6f": {
+          "type": "text",
+          "settings": {
+            "featured_product": [
+              "high-vis-blending"
+            ]
+          }
+        },
+        "327e5cb7-5691-4416-be4d-a0384041917b": {
+          "type": "text",
+          "settings": {
+            "featured_product": [
+              "modern-mirror"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "a63e6a68-45bc-40f9-af6f-2b1a0645ef51",
+        "42057cd0-a3d1-4632-bd75-1c1a3129db6f",
+        "327e5cb7-5691-4416-be4d-a0384041917b"
+      ],
       "settings": {
         "section_title": "Featured",
         "link_destination": ""
