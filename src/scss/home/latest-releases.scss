@@ -3,7 +3,7 @@ section.latest-releases {
     /* Header */
     header.latest-releases--header {
 
-        padding: 60px 50px 20px 50px;
+        padding: 60px 50px 40px 50px;
 
         .latest-releases--header-wrapper {
             display: flex;
@@ -12,7 +12,7 @@ section.latest-releases {
 
             h2.title {
                 display: inline-block;
-                font-size: 24px;
+                font-size: 34px;
                 text-transform: uppercase;
                 padding-bottom: 4px;
                 border-bottom: 2px solid var(--black);
@@ -20,6 +20,10 @@ section.latest-releases {
     
             a.view-more {
                 text-transform: uppercase;
+            }
+
+            a.view-more:hover {
+                text-decoration: underline;
             }
 
         }
@@ -44,19 +48,27 @@ section.latest-releases {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                gap: 6px;
                 width: 100%;
                 padding: 20px;
+            }
+
+            .left {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 12px;
             }
 
             .artist h3 {
                 text-transform: uppercase;
                 padding-bottom: 6px;
-                font-size: 14px;
+                font-size: 20px;
             }
 
             .title h4 {
                 color: var(--grey);
-                font-size: 10px;
+                font-size: 16px;
             }
 
             .price {

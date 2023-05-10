@@ -88,11 +88,19 @@
         "section_title": "Featured",
         "link_destination": ""
       }
+    },
+    "large-nav": {
+      "type": "large-nav"
+    },
+    "current-artists": {
+      "type": "current-artists"
     }
   },
   "order": [
     "hero-slideshow",
     "latest-releases",
-    "featured-products"
+    "featured-products",
+    "large-nav",
+    "current-artists"
   ]
 }

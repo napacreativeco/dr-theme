@@ -3,7 +3,7 @@ section.featured-products {
     /* Header */
     header.featured-products--header {
 
-        padding: 60px 50px 20px 50px;
+        padding: 60px 50px 40px 50px;
 
         .featured-products--header-wrapper {
             display: flex;
@@ -12,7 +12,7 @@ section.featured-products {
 
             h2.title {
                 display: inline-block;
-                font-size: 24px;
+                font-size: 34px;
                 text-transform: uppercase;
                 padding-bottom: 4px;
                 border-bottom: 2px solid var(--black);
@@ -21,8 +21,77 @@ section.featured-products {
             a.view-more {
                 text-transform: uppercase;
             }
+            a.view-more:hover {
+                text-decoration: underline;
+            }
 
         }
 
+    }
+
+    /* Products */
+    .featured-products--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 12px;
+        padding: 0 50px;
+
+        .featured-product {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .image {
+                img {
+                    width: 100%;
+                    max-width: 250px;
+                }
+            }
+            .info {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 12px;
+                height: 100%;
+                background: var(--bright-white);
+                padding: 24px 18px;
+                width: 100%;
+            }
+
+            .title h5 {
+                font-size: 20px;
+            }
+
+            .artist h6 {
+                font-size: 16px;
+                color: var(--grey);
+            }
+
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    section.featured-products {
+
+        /* Header */
+        header.featured-products--header {
+            padding: 60px 20px 20px 20px;
+            .featured-products--header-wrapper {}
+            h2.title {}
+            a.view-more {}
+
+        }
+
+        /* Products */
+        .featured-products--wrapper {
+            padding: 0px 20px 20px 20px;
+            grid-template-columns: 1fr;
+            .featured-product {}
+            .info {}
+        }
     }
 }

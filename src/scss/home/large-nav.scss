@@ -1,0 +1,45 @@
+section.large-nav {
+
+    margin-top: 100px;
+    background: var(--black);
+    color: var(--white);
+
+    .large-nav--wrapper {
+
+        padding: 100px;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 2px solid var(--white);
+            padding: 30px 0 10px 0;
+        }
+
+        a {
+            font-size: 72px;
+            font-weight: 300 !important;
+            text-transform: uppercase;
+            letter-spacing: -0.06em;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    section.large-nav {
+        .large-nav--wrapper {
+
+            padding: 20px 20px 60px 20px;
+            ul {}
+            li {}
+            a {
+                font-size: 32px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<section class="current-artists">
+
+    <header class="current-artists--header">
+        <div class="current-artists--header-wrapper">
+            <h2 class="title">{{ section.settings.section_title }}</h2>
+            <a class="view-more" href="/collections/releases">View more</a>
+        </div>
+    </header>
+
+    {% for product in collections.all.products %}
+
+        {{ product.vendor }}
+    {% endfor %}
+</section>
+
+{% schema %}
+    {
+      "name": "Current Artists",
+      "tag": "section",
+      "class": "current-artists",
+      "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title"
+        },
+        {
+            "type": "page",
+            "id": "link_destination",
+            "label": "Link Destination"
+        }
+      ]
+    }
+{% endschema %}
