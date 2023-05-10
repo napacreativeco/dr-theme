@@ -1,5 +1,44 @@
-<div class="watch">
-    <div class="watch--wrapper">
-        
+<section class="watch section">
+
+    <header class="section--header">
+        <div class="section--header-wrapper">
+            <h2 class="title">{{ section.settings.section_title }}</h2>
+            <a class="view-more" href="/collections/releases">View more</a>
+        </div>
+    </header>
+
+    <div class="section--wrapper">
+        <ul>
+            {% for video in blogs.videos.articles %}
+                <li>
+                    <div class="title">
+                        <h3>{{ video.title }}</h3>
+                    </div>
+                </li>
+                
+            {% endfor %}
+        </ul>
+
     </div>
-</div>
+</section>
+
+
+{% schema %}
+    {
+      "name": "Watch",
+      "tag": "section",
+      "class": "watch-videos",
+      "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title"
+        },
+        {
+            "type": "page",
+            "id": "link_destination",
+            "label": "Link Destination"
+        }
+      ]
+    }
+{% endschema %}

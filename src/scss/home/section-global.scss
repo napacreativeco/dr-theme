@@ -1,0 +1,31 @@
+section.section {
+
+    /* Header */
+    header.section--header {
+
+        padding: 60px 50px 40px 50px;
+
+        .section--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            h2.title {
+                display: inline-block;
+                font-size: 34px;
+                text-transform: uppercase;
+                padding-bottom: 4px;
+                border-bottom: 2px solid var(--black);
+            }
+    
+            a.view-more {
+                text-transform: uppercase;
+            }
+            a.view-more:hover {
+                text-decoration: underline;
+            }
+
+        }
+
+    }
+}
