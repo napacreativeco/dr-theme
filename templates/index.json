@@ -38,8 +38,6 @@
         "6c78b36f-9cf6-4fe7-a9bd-71499af1679c": {
           "type": "text",
           "settings": {
-            "title": "Blending",
-            "artist": "High Vis",
             "release": [
               "high-vis-blending"
             ]
@@ -55,11 +53,12 @@
     },
     "featured-products": {
       "type": "featured-products",
-      "blocks": {},
-      "settings": {}
+      "settings": {
+        "section_title": "Featured",
+        "link_destination": ""
+      }
     }
   },
-
   "order": [
     "hero-slideshow",
     "latest-releases",
