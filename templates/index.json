@@ -99,14 +99,14 @@
       "type": "current-artists",
       "settings": {
         "section_title": "Current Artists",
-        "link_destination": "artists"
+        "link_destination": "current-artists"
       }
     },
     "watch-videos": {
       "type": "watch-videos",
       "settings": {
         "section_title": "Watch",
-        "link_destination": "artists"
+        "link_destination": "current-artists"
       }
     }
   },
