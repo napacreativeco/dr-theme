@@ -103,15 +103,11 @@
       }
     },
     "watch-videos": {
-<<<<<<< HEAD
-      "type": "watch-videos"
-=======
       "type": "watch-videos",
       "settings": {
         "section_title": "Watch",
         "link_destination": "artists"
       }
->>>>>>> 43dc0b9f8093129296b86506c547f0f83f2e6fe7
     }
   },
   "order": [
