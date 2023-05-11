@@ -42,10 +42,37 @@
               "high-vis-blending"
             ]
           }
+        },
+        "bc607eb9-bee3-4f4a-aac9-03034cb13af2": {
+          "type": "text",
+          "settings": {
+            "release": [
+              "modern-mirror"
+            ]
+          }
+        },
+        "55f128e8-4f24-4c74-aa7d-f0c47373fd27": {
+          "type": "text",
+          "settings": {
+            "release": [
+              "gathering-swans"
+            ]
+          }
+        },
+        "155235d5-b154-4fa9-ac68-76c16a6974da": {
+          "type": "text",
+          "settings": {
+            "release": [
+
+            ]
+          }
         }
       },
       "block_order": [
-        "6c78b36f-9cf6-4fe7-a9bd-71499af1679c"
+        "6c78b36f-9cf6-4fe7-a9bd-71499af1679c",
+        "bc607eb9-bee3-4f4a-aac9-03034cb13af2",
+        "55f128e8-4f24-4c74-aa7d-f0c47373fd27",
+        "155235d5-b154-4fa9-ac68-76c16a6974da"
       ],
       "settings": {
         "section_title": "Latest Releases",
