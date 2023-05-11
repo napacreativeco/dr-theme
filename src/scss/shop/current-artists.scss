@@ -1,0 +1,55 @@
+.artist-archive {
+
+    .artist-archive--container {
+        padding-bottom: 40px;
+    }
+    
+    .artist-archive--wrapper {
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            .artist-wrapper .image {
+                height: 300px;
+                width: 100%;
+                cursor: pointer;
+                overflow: hidden;
+                object-fit: cover;
+                object-position: center center;
+
+                img {
+                    transition: all 0.22s;
+                }
+            }
+            .artist-wrapper .image:hover img {
+                transform: scale(1.06);
+            }
+
+            .artist-wrapper .artist {
+                padding: 20px;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .artist-archive {
+
+        .artist-archive--wrapper {
+    
+            .list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+    
+                .artist-wrapper .image {
+                    height: 300px;
+                }
+            }
+    
+        }
+    
+    }
+}

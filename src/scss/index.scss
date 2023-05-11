@@ -6,16 +6,25 @@
     100% { opacity: 0.8;}
 }
 
+/* Global */
 @import 'global/reset.scss';
 @import 'global/app.scss';
 @import 'global/variables.scss';
 @import 'global/footer.scss';
+
+/* Nav */
 @import 'navigation/navbar.scss';
 @import 'navigation/mobilenav.scss';
+
+/* Home */
 @import 'home/hero.scss';
 @import 'home/latest-releases.scss';
 @import 'home/featured-products.scss';
 @import 'home/large-nav.scss';
-@import 'home/current-artists.scss';
 @import 'home/section-global.scss';
 @import 'home/watch.scss';
+@import 'home/current-artists.scss';
+
+/* Shop */
+@import 'shop/current-artists.scss';
+@import 'shop/header.scss';

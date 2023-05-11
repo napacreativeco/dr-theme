@@ -1,71 +1,76 @@
 <section class="featured-products section">
 
-    <header class="section--header">
-        <div class="section--header-wrapper">
-            <h2 class="title">{{ section.settings.section_title }}</h2>
-            <a class="view-more" href="/collections/releases">View more</a>
-        </div>
-    </header>
-
-    
-    <div class="featured-products--wrapper">
-        {% for block in section.blocks %}
-            {% for item in block.settings.featured_product %}
-                <div class="featured-product">
-
-                    <div class="image">
-                        <img src="{{ item.featured_image | img_url: '1000x' }}" alt="{{ item.title }}" width="100" loading="lazy" />
-                    </div>
-
-                    <div class="info">
-                        <div class="title">
-                            <h5>{{ item.title }}</h5>
-                        </div>
-                        <div class="artist type-writer">
-                            <h6>{{ item.vendor }}</h6>
-                        </div>
-                    </div>
-
-                </div>
-                
-            {% endfor %}
-
-        {% endfor %}
-
-
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title">{{ section.settings.section_title }}</h2>
+      <a class="view-more" href="/collections/releases">View more</a>
     </div>
+  </header>
+
+
+  <div class="featured-products--wrapper">
+    {% for block in section.blocks %}
+      {% for item in block.settings.featured_product %}
+        <div class="featured-product">
+
+          <div class="image">
+            <a href="{{ item.url }}" title="{{ item.title }}">
+              <img src="{{ item.featured_image | img_url: '1000x' }}"alt="{{ item.title }}"width="100"loading="lazy" />
+            </a>
+          </div>
+
+          <div class="info">
+            <div class="title">
+              <a href="{{ item.url }}" title="{{ item.title }}">
+                <h5>{{ item.title }}</h5>
+              </a>
+            </div>
+            <div class="artist type-writer">
+              <a href="{{ item.url }}" title="{{ item.title }}">
+                <h6>{{ item.vendor }}</h6>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      {% endfor %}
+
+    {% endfor %}
+
+
+  </div>
 </section>
 
 {% schema %}
-    {
-      "name": "Featured Products",
-      "tag": "section",
-      "class": "featured-products",
-      "settings": [
-        {
-            "type": "text",
-            "id": "section_title",
-            "label": "Section Title"
-        },
-        {
-            "type": "page",
-            "id": "link_destination",
-            "label": "Link Destination"
-        }
-      ],
-      "blocks": [
-         {
-           "name": "Product",
-           "type": "text",
-           "settings": [
-             {
-                "type": "product_list",
-                "id": "featured_product",
-                "label": "Featured Product",
-                "limit": 1
-            }
-           ]
-         }
-       ]
-    }
+  {
+    "name": "Featured Products",
+    "tag": "section",
+    "class": "featured-products",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      }, {
+        "type": "page",
+        "id": "link_destination",
+        "label": "Link Destination"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Product",
+        "type": "text",
+        "settings": [
+          {
+            "type": "product_list",
+            "id": "featured_product",
+            "label": "Featured Product",
+            "limit": 1
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

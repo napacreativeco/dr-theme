@@ -40,9 +40,11 @@ section.current-artists {
             display: flex;
             flex-direction: row;
             align-items: stretch;
+            gap: 12px;
             width: 100%;
             overflow-x: scroll;
             padding: 0 0 20px 0;
+            list-style: none;
         }
 
         ul.current-artists--list.active {

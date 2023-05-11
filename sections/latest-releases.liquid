@@ -1,87 +1,94 @@
 <section class="latest-releases section">
 
-    <header class="section--header">
-        <div class="section--header-wrapper">
-            <h2 class="title">{{ section.settings.section_title }}</h2>
-            <a class="view-more" href="/collections/releases">View more</a>
-        </div>
-    </header>
-    
-    <div class="latest-releases--wrapper">
-
-        {% for block in section.blocks %}
-            
-            <div class="release">
-                {% for album in block.settings.release %}
-
-                    {% comment %} 
-                    Image
-                    {% endcomment %}
-                    <div class="image">
-                        <img src="{{ album.featured_image | img_url: '1000x' }}" alt="{{ album.title }}" width="100" loading="lazy" />
-                    </div>
-
-                    {% comment %} 
-                    Info
-                    {% endcomment %}
-                    <div class="info">
-
-                        <div class="left">
-                            <div class="artist">
-                                <h3>{{ album.vendor }}</h3>
-                            </div>
-                            <div class="title type-writer">
-                                <h4>{{ album.title }}</h4>
-                            </div>
-                        </div>
-
-                        <div class="right">
-                            <div class="price type-writer">
-                                {{ album.price | money_without_trailing_zeros }}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    
-                {% endfor %}
-            </div>
-        {% endfor %}
-
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title">{{ section.settings.section_title }}</h2>
+      <a class="view-more" href="/collections/releases">View more</a>
     </div>
+  </header>
+
+  <div class="latest-releases--wrapper">
+
+    {% for block in section.blocks %}
+
+      <div class="release">
+        {% for album in block.settings.release %}
+
+          {% comment %} 
+            Image
+          {% endcomment %}
+          <div class="image">
+            <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+              <img src="{{ album.featured_image | img_url: '1000x' }}" alt="{{ album.title }}" width="100" loading="lazy" />
+            </a>
+          </div>
+
+          {% comment %} 
+            Info
+          {% endcomment %}
+          <div class="info">
+
+            <div class="left">
+              <div class="artist">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  <h3>{{ album.vendor }}</h3>
+                </a>
+              </div>
+              <div class="title type-writer">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  <h4>{{ album.title }}</h4>
+                </a>
+              </div>
+            </div>
+
+            <div class="right">
+              <div class="price type-writer">
+                <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
+                  {{ album.price | money_without_trailing_zeros }}
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
 </section>
 
 
 {% schema %}
-    {
-      "name": "Latest Releases",
-      "tag": "section",
-      "class": "latest-releases",
-      "settings": [
-        {
-            "type": "text",
-            "id": "section_title",
-            "label": "Section Title"
-        },
-        {
-            "type": "page",
-            "id": "link_destination",
-            "label": "Link Destination"
-        }
-      ],
-      "blocks": [
-         {
-           "name": "Release",
-           "type": "text",
-           "settings": [
-             {
-                "type": "product_list",
-                "id": "release",
-                "label": "Product",
-                "limit": 1
-            }
-           ]
-         }
-       ]
-    }
+  {
+    "name": "Latest Releases",
+    "tag": "section",
+    "class": "latest-releases",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      }, {
+        "type": "page",
+        "id": "link_destination",
+        "label": "Link Destination"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Release",
+        "type": "text",
+        "settings": [
+          {
+            "type": "product_list",
+            "id": "release",
+            "label": "Product",
+            "limit": 1
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

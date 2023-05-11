@@ -1,3 +1,56 @@
-<div class="artist-archive" data-page="current-artists" style="padding-top: 100px;">
-    current artists
+{% comment %} 
+  Current Artists Page
+{% endcomment %}
+
+
+<div class="artist-archive"
+  data-page="current-artists"
+  style="padding-top: 100px;">
+
+  {% comment %} Header {% endcomment %}
+  <header class="archive--header">
+    <div class="archive--header-wrapper">
+      <h2 class="title">Current Artists</h2>
+      <a class="view-more" href="/collections/releases">View more</a>
+    </div>
+  </header>
+
+  {% comment %} Artist Loop {% endcomment %}
+  <div class="artist-archive--container">
+    <div class="artist-archive--wrapper">
+
+      <div class="list">
+        {% for product in collections.all.products %}
+
+          {% case product.type %}
+            {% when 'vinyl' %}
+
+            <div class="artist">
+              <div class="artist-wrapper">
+                {% for collection in collections %}
+                  {% if collection.title == product.vendor %}
+
+                    <div onclick="window.location='{{ collection.url }}';"class="image">
+                      <img src="{{ collection.image | img_url: '900x' }} alt={{ collection.title }}" />
+                    </div>
+
+                    <div class="artist">
+                      <a href="{{ collection.url }}" title="{{ collection.title }}">
+                        {{ collection.title }}
+                      </a>
+                    </div>
+
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+            </div>
+
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
 </div>

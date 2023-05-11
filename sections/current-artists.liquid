@@ -1,99 +1,106 @@
+{% comment %} 
+  Current Artists - Section
+{% endcomment %}
+
 <section class="current-artists section">
 
-    <header class="section--header">
-        <div class="section--header-wrapper">
-            <h2 class="title">{{ section.settings.section_title }}</h2>
-            <a class="view-more" href="/collections/releases">View more</a>
-        </div>
-    </header>
-
-    <div class="current-artists--wrapper">
-        <ul class="current-artists--list">
-            {% for product in collections.all.products %}
-
-                {% case product.type %}
-                    {% when 'vinyl' %}
-
-                        <li class="artist">
-                            <div class="artist-wrapper">
-                                {% for collection in collections %}
-                                    {% if collection.title == product.vendor %}
-
-                                        <div class="image" style="background: url('{{ collection.image | img_url: '900x' }}'); background-size: cover; background-position: center center;">
-                                            &nbsp;
-                                        </div>
-
-                                        <div class="artist">
-                                            {{ collection.title }}
-                                        </div>
-                                        
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-
-                        </li>
-
-                {% endcase %}
-            {% endfor %}
-        </ul>
-
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title">{{ section.settings.section_title }}</h2>
+      <a class="view-more" href="/pages/{{ section.settings.link_destination }}">View more</a>
     </div>
+  </header>
+
+  <div class="current-artists--wrapper">
+    <ul class="current-artists--list">
+      {% for product in collections.all.products %}
+
+        {% case product.type %}
+          {% when 'vinyl' %}
+
+          <li class="artist">
+            <div class="artist-wrapper">
+              {% for collection in collections %}
+                {% if collection.title == product.vendor %}
+
+                  <div class="image" style="background: url('{{ collection.image | img_url: '900x' }}'); background-size: cover; background-position: center center;">
+                    &nbsp;
+                  </div>
+
+                  <div class="artist">
+                    <a href="{{ collection.url }}" title="{{ collection.title }}">
+                      {{ collection.title }}
+                    </a>
+                  </div>
+
+                {% endif %}
+              {% endfor %}
+            </div>
+
+          </li>
+
+        {% endcase %}
+      {% endfor %}
+    </ul>
+
+  </div>
 
 
-    
 </section>
 
 {% schema %}
-    {
-      "name": "Current Artists",
-      "tag": "section",
-      "class": "current-artists",
-      "settings": [
-        {
-            "type": "text",
-            "id": "section_title",
-            "label": "Section Title"
-        },
-        {
-            "type": "page",
-            "id": "link_destination",
-            "label": "Link Destination"
-        }
-      ]
-    }
+  {
+    "name": "Current Artists",
+    "tag": "section",
+    "class": "current-artists",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      }, {
+        "type": "page",
+        "id": "link_destination",
+        "label": "Link Destination"
+      }
+    ]
+  }
 {% endschema %}
 
 
 <script>
-    const slider = document.querySelector('.current-artists--list');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+  const slider = document.querySelector('.current-artists--list');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.classList.add('active');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
 
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.classList.remove('active');
-    });
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-    slider.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
+  slider.addEventListener('mousemove', (e) => {
+    if (! isDown) 
+      return;
+    
 
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 3; //scroll-fast
-        slider.scrollLeft = scrollLeft - walk;
-        console.log(walk);
-    });
+
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3; // scroll-fast
+    slider.scrollLeft = scrollLeft - walk;
+    console.log(walk);
+  });
 </script>
