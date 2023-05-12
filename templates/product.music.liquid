@@ -1,13 +1,11 @@
-<div
-  class="single-product"
-  data-type="music"
-  itemscope
-  itemtype="http://schema.org/Product">
+{% comment %} 
+Single Product - Music
+{% endcomment %}
 
-  <div class="single-product--wrapper">
+<div class="single-product" data-type="music" itemscope itemtype="http://schema.org/Product">
+  <div class="sp--wrapper">
 
-
-    <header>
+    <header class="sp--header">
 
       <div class="artist-name">
         <h1>
@@ -26,19 +24,89 @@
         </div>
 
         <div class="format">
-          <span>FORMAT</span>
+          <span>{{ product.type }}</span>
+        </div>
+
+        <div class="release-date">
+          {% comment %} code in OG theme {% endcomment %}
         </div>
 
       </div>
 
     </header>
 
+    <section class="sp--body">
+      <div class="sp--row">
 
+          {% comment %} Gallery {% endcomment %}
+          <div class="gallery">
+            <div class="gallery--wrapper">
+
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                        
+                    {% for image in product.images %}
+
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="{{ image | img_url: '1080x' }}" alt="" />
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="swiper-controls">
+                    <div class="swiper-pagination"></div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          {% comment %} Data {% endcomment %}
+          <div class="data">
+            <div class="row">
+
+              {% comment %} Bandcamp {% endcomment %}
+              <div class="bandcamp-slider">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+
+                    {% for bandcamp in product.metafields.music.bandcamp %}
+                      <div class="swiper-slide">
+                        {{ bandcamp }}  
+                      </div>
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+    </section>
   </div>
-
-
 </div>
+<script>
 
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+
+  });
+
+</script>
 <script type="text/javascript">
   jQuery( document ).ready(function() {
   console.log({{ product | json }});

@@ -1,8 +1,35 @@
-.single-artist {
-
-    .single-artist-wrapper {
-
+.single-product {
+    
+    .single-product--wrapper {
         padding: 160px 50px 40px 50px;
+
+        header {
+
+            .artist-name {
+
+                margin-bottom: 40px;
+
+                h1 {
+                    font-size: 82px;
+                    letter-spacing: -4px;
+                }
+            }
+
+            .metadata {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 40px;
+                color: var(--grey);
+
+                .release-title {}
+                .format {
+                    text-transform: capitalize;
+                }
+            }
+
+        }
+        
     }
 
 }
