@@ -1,22 +1,46 @@
-<div class="single-product" data-type="music">
+<div
+  class="single-product"
+  data-type="music"
+  itemscope
+  itemtype="http://schema.org/Product">
 
-    <h1 class="release-title">
-        <a href="{{ product.url }}" title="{{ }} - {{ product.title }}">
-            {{ product.title }}
-        </a>
-    </h1>
-    <h2 class="artist-name">
-        <a href="" title="{{ shop.metaobjects.artist.name }}">
-            {{ shop.metaobjects.artist.name.value }}
-        </a>
-    </h2>
-    
+  <div class="single-product--wrapper">
+
+
+    <header>
+
+      <div class="artist-name">
+        <h1>
+          <a href="{{ product.url }}" title="{{ product.title }}">
+            {{ product.vendor }}
+          </a>
+        </h1>
+      </div>
+
+      <div class="metadata">
+
+        <div class="release-title">
+          <a href="{{ product.url }}" title="{{ }} - {{ product.title }}">
+            <span>{{ product.title }}</span>
+          </a>
+        </div>
+
+        <div class="format">
+          <span>FORMAT</span>
+        </div>
+
+      </div>
+
+    </header>
+
+
+  </div>
+
+
 </div>
 
 <script type="text/javascript">
-jQuery( document ).ready(function() {
-    console.log({{ product | json }});
-
-    console.log({{ shop.metaobjects.artist.values | json }});
-});
+  jQuery( document ).ready(function() {
+  console.log({{ product | json }});
+  });
 </script>
