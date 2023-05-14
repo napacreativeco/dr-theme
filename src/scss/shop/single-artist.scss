@@ -1,0 +1,26 @@
+.single-artist {
+
+    .single-artist--wrapper {
+
+        padding: 120px 50px;
+
+        .artist-header {
+            padding: 0 0 40px 0;
+
+            .title {
+                h1 {
+                    font-size: 62px;
+                }
+            }
+        }
+
+        ul.artist-products {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+}

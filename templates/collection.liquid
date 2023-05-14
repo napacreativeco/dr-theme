@@ -10,8 +10,7 @@
 
   {% comment %}
     Collection sorting. Needs the JavaScript that is at the bottom of this file.
-  {% endcomment %}
-  {% if collection.products_count > 1 %}
+  {% endcomment %}{% if collection.products_count > 1 %}
     <select class="sort-by right">
       <option value="manual">Featured</option>
       <option value="price-ascending">Price: Low to High</option>
@@ -46,7 +45,7 @@
             {{ tag | link_to_tag: tag }}
           </li>
         {% endif %}
-      {% endfor %}  
+      {% endfor %}
     </ul>
   {% endif %}
 
@@ -56,7 +55,7 @@
 
   {% for product in collection.products %}
     <ul>
-      {% include 'product-item' %}
+      {% render 'product-item' %}
     </ul>
   {% else %}
     <p>There are no products in this view.</p>
@@ -72,9 +71,7 @@
   JavaScript for collection sorting.
 {% endcomment %}
 <script>
-jQuery('.sort-by')
-  .val('{{ collection.sort_by | default: collection.default_sort_by }}')
-  .on('change', function() {
+  jQuery('.sort-by').val('{{ collection.sort_by | default: collection.default_sort_by }}').on('change', function() {
     Shopify.queryParams.sort_by = jQuery(this).val();
     location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
   });

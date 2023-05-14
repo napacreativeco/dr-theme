@@ -3,7 +3,7 @@
 
         <ul>
             {% for link in linklists.large-menu.links %}
-                <li class="{% if link.active or parent_link_active %} active{% endif %}}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
+                <li class="{% if link.active %} active{% endif %}}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
                     <a href="{{ link.url }}">{{ link.title }}</a> 
                 </li>
             {% endfor %}

@@ -1,61 +1,62 @@
 <section class="watch section">
 
-    <header class="section--header">
-        <div class="section--header-wrapper">
-            <h2 class="title">{{ section.settings.section_title }}</h2>
-            <a class="view-more" href="/collections/releases">View more</a>
-        </div>
-    </header>
-
-    <div class="watch--wrapper">
-        <ul>
-            {% for video in blogs.videos.articles %}
-                <li>
-                    <div class="image" style="background: url('{{ video.image | img_url: '900x'   }}'); background-size: cover;">
-                        &nbsp;
-                    </div>
-
-                    <div class="info">
-                        <div class="title">
-                            <h3>{{ video.title }}</h3>
-                        </div>
-                        <div class="artist">
-                            <h3>{{ video.tags }}</h3>
-                        </div>
-                    </div>
-
-                </li>
-                
-            {% endfor %}
-        </ul>
-
+  <header class="section--header">
+    <div class="section--header-wrapper">
+      <h2 class="title">{{ section.settings.section_title }}</h2>
+      <a class="view-more" href="/collections/releases">View more</a>
     </div>
+  </header>
+
+  <div class="watch--wrapper">
+    <ul>
+      {% for video in blogs.videos.articles %}
+        <li>
+          <div class="image" style="background: url('{{ video.image | image_url: width: 900 }}'); background-size: cover;">
+            &nbsp;
+          </div>
+
+          <div class="info">
+            <div class="title">
+              <h3>{{ video.title }}</h3>
+            </div>
+            <div class="artist">
+              <h3>{{ video.tags }}</h3>
+            </div>
+          </div>
+
+        </li>
+
+      {% endfor %}
+    </ul>
+
+  </div>
 
 
 </section>
 
 <div class="videos-link">
-    <a href="#" title="Go to Videos"><span class="text">Go to Videos</span> <span class="right-dash"></span></a>
+  <a href="#" title="Go to Videos">
+    <span class="text">Go to Videos</span>
+    <span class="right-dash"></span>
+  </a>
 </div>
 
 
 {% schema %}
-    {
-      "name": "Watch",
-      "tag": "section",
-      "class": "watch-videos",
-      "settings": [
-        {
-            "type": "text",
-            "id": "section_title",
-            "label": "Section Title"
-        },
-        {
-            "type": "page",
-            "id": "link_destination",
-            "label": "Link Destination"
-        }
-      ]
-    }
+  {
+    "name": "Watch",
+    "tag": "section",
+    "class": "watch-videos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      }, {
+        "type": "page",
+        "id": "link_destination",
+        "label": "Link Destination"
+      }
+    ]
+  }
 {% endschema %}
-

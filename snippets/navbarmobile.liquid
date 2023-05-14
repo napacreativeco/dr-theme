@@ -1,88 +1,94 @@
 <div class="navbar-mobile">
-    <div class="navbar-mobile--row">
+  <div class="navbar-mobile--row">
 
-        <div class="menu-button-holder">
-            <div class="menu-button">
-                <span>Menu</span>
-            </div>
-        </div>
-
-        <div class="logo">
-            {% render 'dais-head' %}
-        </div>
-
-        <div class="cart">
-            {% render 'cart-count' %}
-        </div>
-
+    <div class="menu-button-holder">
+      <div class="menu-button">
+        <span>Menu</span>
+      </div>
     </div>
 
-    <div class="navbar-mobile--dropdown">
-        <div class="links">
-            <nav role="navigation">
-                <ul>
-                    {% for link in linklists.main-menu.links %}
-                        {% assign has_sub_menu = false %}
-                        {% assign has_sub_categories = false %}
-                        {% assign parent_link_active = false %}
-                        {% assign child_list_handle = link.title | handle %}
+    <div class="logo">
+      {% render 'dais-head' %}
+    </div>
+
+    <div class="cart">
+      {% render 'cart-count' %}
+    </div>
+
+  </div>
+
+  <div class="navbar-mobile--dropdown">
+    <div class="links">
+      <nav role="navigation">
+        <ul>
+          {%- liquid
+                        for link in linklists.main-menu.links
+                            assign has_sub_menu = false
+                            assign has_sub_categories = false
+                            assign parent_link_active = false
+                            assign child_list_handle = link.title | handle
                         
-                        {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                            if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 
+                                
+                                assign has_sub_menu = true
+
+                                for l in linklists[child_list_handle].links
+
+                                    if handle != blank and handle == l.object.handle
+                                        assign parent_link_active = true
+                                    elsif page_title == l.title
+                                        assign parent_link_active = true
+                                    endif
+
+                                endfor
+
+                           elsif link.type == 'collection_link' and link.object.all_tags.size > 0
                             
-                            {% assign has_sub_menu = true %}
-
-                            {% for l in linklists[child_list_handle].links %}
-
-                                {% if handle != blank and handle == l.object.handle %}
-                                    {% assign parent_link_active = true %}
-                                {% elsif page_title == l.title %}
-                                    {% assign parent_link_active = true %}
-                                {% endif %}
-
-                            {% endfor %}
-
-                        {% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+                                assign has_sub_categories = true
                             
-                            {% assign has_sub_categories = true %}
-                            
-                        {% endif %}
+                           endif 
+                        endfor
+                    -%}
 
-                        <li data-title="{{ link.title }}" class="nav-link {% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-mobile-dropdown {% else %} no-dropdown {% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
-                            
-                            <a  class="mobile-submenu-main-link {{ link.title }}" href="{{ link.url }}">
-                                {{ link.title }}{% if has_sub_menu or has_sub_categories %} <span class="more">+</span>{% endif %}
-                            </a> 
-                            
-                            {% if has_sub_menu or has_sub_categories %}
 
-                                <ul class="mobile-submenu" data-menu="{{ link.title }}">
-                                    {% if has_sub_menu %}
+          {% for link in linklists.main-menu.links %}
+            <li data-title="{{ link.title }}" class="nav-link {% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-mobile-dropdown {% else %} no-dropdown {% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
 
-                                        {% for l in linklists[child_list_handle].links %}
-                                            <li class="{% if l.active %} active{% endif %}">
-                                                <a href="{{ l.url }}">{{ l.title }}</a>
-                                            </li>
-                                        {% endfor %}
+              <a class="mobile-submenu-main-link {{ link.title }}" href="{{ link.url }}">
+                {{ link.title }}{% if has_sub_menu or has_sub_categories %}
+                  <span class="more">+</span>
+                {% endif %}
+              </a>
 
-                                    {% elsif has_sub_categories %}
-                                        
-                                        {% for tag in link.object.all_tags %}
-                                            <li class="{% if current_tags contains tag %} active{% endif %}">
-                                                <a href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a>
-                                            </li>
-                                        {% endfor %}
+              {% if has_sub_menu or has_sub_categories %}
 
-                                    {% endif %}
-                                </ul>
+                <ul class="mobile-submenu" data-menu="{{ link.title }}">
+                  {% if has_sub_menu %}
 
-                            {% endif %}
-
-                        </li>
-
+                    {% for l in linklists[child_list_handle].links %}
+                      <li class="{% if l.active %} active{% endif %}">
+                        <a href="{{ l.url }}">{{ l.title }}</a>
+                      </li>
                     {% endfor %}
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
 
+                  {% elsif has_sub_categories %}
+
+                    {% for tag in link.object.all_tags %}
+                      <li class="{% if current_tags contains tag %} active{% endif %}">
+                        <a href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a>
+                      </li>
+                    {% endfor %}
+
+                  {% endif %}
+                </ul>
+
+              {% endif %}
+
+            </li>
+
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

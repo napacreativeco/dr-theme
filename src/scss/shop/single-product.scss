@@ -1,9 +1,9 @@
 .single-product {
     
-    .single-product--wrapper {
+    .sp--wrapper {
         padding: 160px 50px 40px 50px;
 
-        header {
+        header.sp--header {
 
             .artist-name {
 
@@ -22,13 +22,31 @@
                 gap: 40px;
                 color: var(--grey);
 
-                .release-title {}
+                // .release-title {}
                 .format {
                     text-transform: capitalize;
                 }
             }
 
         }
+
+        .sp--row {
+            width: 100%;
+        }
+
+        .gallery {
+
+            max-width: 100%;
+
+            .swiper-slide {
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+
+
         
     }
 

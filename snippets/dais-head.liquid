@@ -1,3 +1,9 @@
-<a id="logo--head" href="/" title="{{ 'Dais Records' | escape }}">
-  {{ 'dais--head-logo.svg' | asset_url | img_tag: shop.name }}
+<a
+  id="logo--head"
+  href="/"
+  title="{{ 'Dais Records' | escape }}">
+  <img
+    src="{{ 'dais--head-logo.svg' | asset_url }}"
+    alt="{{ 'Dais Records' | escape }}"
+    loading="lazy" />
 </a>

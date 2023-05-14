@@ -7,7 +7,6 @@
     </div>
   </header>
 
-
   <div class="featured-products--wrapper">
     {% for block in section.blocks %}
       {% for item in block.settings.featured_product %}
@@ -15,7 +14,10 @@
 
           <div class="image">
             <a href="{{ item.url }}" title="{{ item.title }}">
-              <img src="{{ item.featured_image | img_url: '1000x' }}"alt="{{ item.title }}"width="100"loading="lazy" />
+              <img
+                src="{{ item.featured_image | image_url: width: 500 }}"
+                alt="{{ item.title }}"
+                loading="lazy" />
             </a>
           </div>
 
@@ -35,7 +37,6 @@
         </div>
 
       {% endfor %}
-
     {% endfor %}
 
 

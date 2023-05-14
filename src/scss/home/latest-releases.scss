@@ -41,6 +41,8 @@ section.latest-releases {
             .image {
                 img {
                     width: 100%;
+                    height: auto;
+                    aspect-ratio: 1/1;
                 }
             }
 
@@ -71,9 +73,7 @@ section.latest-releases {
                 font-size: 16px;
             }
 
-            .price {
-
-            }
+            // .price { }
 
         }
     }

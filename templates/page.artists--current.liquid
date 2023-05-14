@@ -31,7 +31,7 @@
                   {% if collection.title == product.vendor %}
 
                     <div onclick="window.location='{{ collection.url }}';"class="image">
-                      <img src="{{ collection.image | img_url: '900x' }} alt={{ collection.title }}" />
+                      <img src="{{ collection.image | image_url: width: 900 }}" width="{{ collection.image.width }}" height="{{ collection.image.height }}" loading="lazy" alt={{ collection.title }}" />
                     </div>
 
                     <div class="artist">
