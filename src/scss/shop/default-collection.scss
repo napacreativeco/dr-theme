@@ -1,0 +1,53 @@
+.default-collection {
+
+    padding: 120px 50px 40px 50px;
+
+    ul.products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 12px;
+        list-style: none;
+
+        .image {
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                transform: scale(1);
+            }
+
+            img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .data {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0 0 0;
+
+            a {
+                cursor: pointer;
+            }
+
+            .artist {
+                text-transform: uppercase;
+                padding-bottom: 6px;
+                font-size: 1rem;
+            }
+            .title {
+                font-size: 0.8rem;
+                color: var(--grey);
+            }
+
+            .price {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

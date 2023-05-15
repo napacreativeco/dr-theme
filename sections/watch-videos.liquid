@@ -17,10 +17,14 @@
 
           <div class="info">
             <div class="title">
-              <h3>{{ video.title }}</h3>
+              <a href="{{ video.url }}" title="{{ video.title }} by {{ video.tags }}">
+                <h3>{{ video.title }}</h3>
+              </a>
             </div>
             <div class="artist">
-              <h3>{{ video.tags }}</h3>
+              <a href="{{ video.url }}" title="{{ video.title }} by {{ video.tags }}">
+                <h4>{{ video.tags }}</h4>
+              </a>
             </div>
           </div>
 
@@ -40,6 +44,11 @@
     <span class="right-dash"></span>
   </a>
 </div>
+
+{% comment %}
+VIDEO POPUP
+{% endcomment %}
+
 
 
 {% schema %}

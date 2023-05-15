@@ -34,7 +34,7 @@ section.current-artists {
         overflow: hidden;
         width: 100%;
         max-width: 100%;
-        padding: 0 50px;
+        padding: 0 50px 40px 50px;
 
         ul.current-artists--list {
             display: flex;
@@ -58,6 +58,16 @@ section.current-artists {
                 aspect-ratio: 1/1;
                 width: 350px;
                 margin-bottom: 10px;
+                
+            }
+
+            .image:hover {
+                opacity: 0.8;
+                cursor: grab;
+            }
+
+            .image:active {
+                cursor: grabbing;
             }
         }
 

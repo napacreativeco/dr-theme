@@ -1,0 +1,74 @@
+.single-product {
+    
+    .wrapper {
+        padding: 160px 50px 40px 50px;
+
+        header {
+
+            .band-name {
+
+                margin-bottom: 40px;
+
+                h1 {
+                    font-size: 82px;
+                    letter-spacing: -4px;
+                }
+            }
+
+            .data {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 40px;
+                color: var(--grey);
+
+                // .release-title {}
+                .product-type {
+                    text-transform: capitalize;
+                }
+            }
+
+        }
+
+        .section-one {
+            padding: 40px 0px; 
+            display: flex;
+            flex-direction: row;
+
+            .left {
+                width: 50%;
+
+                .gallery-swiper {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .right {
+                width: 50%;
+            }
+
+            .tracklisting {
+                li {
+                    display: list-item;
+                    list-style-position: inside;
+                }
+            }
+
+            .bandcamp-swiper {
+
+                .bandcamp-pagination {
+
+                }
+
+            }
+        }
+
+
+
+
+        
+    }
+
+}

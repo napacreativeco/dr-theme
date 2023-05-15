@@ -1,6 +1,81 @@
-<script>
-  console.log('Title: ' + {{ product.title | json }});
-  console.log('Artist: ' + {{ product.vendor | json }});
-  console.log('---------------------------');
-  console.log('Object: ' + {{ product | json }});
-</script>
+<div style="padding-top: 100px;"></div>
+
+<div class="single-product">
+  <div class="wrapper">
+
+    <header class="artist-header">
+
+      <div class="band-name">
+        <h1>{{ product.vendor }}</h1>
+      </div>
+
+      <div class="data">
+        <div class="product-title">
+          <h2>{{ product.title }}</h2>
+        </div>
+        <div class="product-type">
+          <h2>{{ product.type }}</h2>
+        </div>
+        <div class="product-release">
+          <h2>release date</h2>
+        </div>
+      </div>
+
+    </header>
+
+
+    {% comment %} 
+    // Section One //
+    {% endcomment %}
+    <section class="section-one">
+
+      <div class="left">
+
+        <div class="gallery-swiper swiper">
+          <div class="swiper-wrapper">
+          
+            {% for image in product.media %}
+              <div class="swiper-slide">
+                <img src="{{ image | image_url: width: 450 }}" alt="{{ product.title }} by {{ product.vendor }}" />
+              </div>
+            {% endfor %}
+          
+          </div>
+          <div class="gallery-pagination"></div>
+        </div>
+
+      </div>
+
+      <div class="right">
+
+        {% comment %} Bandcamp {% endcomment %}
+        <div class="bandcamp">
+          <div class="bandcamp-swiper swiper">
+            <div class="swiper-wrapper">
+
+              {% for camp in product.metafields.dais.bandcamps.value %}
+                <div class="swiper-slide">
+                  {{ camp }}
+                </div>
+              {% endfor %}
+
+            </div>
+            <div class="bandcamp-pagination"></div>
+          </div>
+        </div>
+
+        {% comment %} Tracklisting {% endcomment %}
+        <div class="tracklisting">
+          <ol class="tracklist">
+            {% for track in product.metafields.dais.tracklisting.value %}
+              <li class="track">{{ track }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+</div>

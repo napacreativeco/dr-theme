@@ -42,11 +42,16 @@ section.featured-products {
             align-items: center;
 
             .image {
+                overflow: hidden;
                 img {
                     width: 100%;
                     max-width: 250px;
                     height: auto;
+                    transition: all 0.2s ease-in-out;
                 }
+            }
+            .image:hover img {
+                transform: scale(1.03);
             }
             .info {
                 display: flex;
