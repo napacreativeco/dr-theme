@@ -34,6 +34,7 @@
             padding: 40px 0px; 
             display: flex;
             flex-direction: row;
+            gap: 40px;
 
             .left {
                 width: 50%;
@@ -49,20 +50,31 @@
                 width: 50%;
             }
 
+            .bandcamp-swiper {
+                margin-bottom: 20px;
+
+                iframe {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+
+                .bandcamp-pagination {
+                    text-align: left;
+                    padding: 4px 0 20px 0;
+                }
+
+            }
+            
             .tracklisting {
+                h3 {
+                    margin-bottom: 14px;
+                }
                 li {
                     display: list-item;
                     list-style-position: inside;
                 }
             }
 
-            .bandcamp-swiper {
-
-                .bandcamp-pagination {
-
-                }
-
-            }
         }
 
 

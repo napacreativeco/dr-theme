@@ -61,11 +61,15 @@
 
             </div>
             <div class="bandcamp-pagination"></div>
+            <div class="controls"><span class="next"></span><span class="prev"></span></div>
           </div>
         </div>
 
         {% comment %} Tracklisting {% endcomment %}
         <div class="tracklisting">
+
+          <h3>{{ 'Tracklisting' | escape }}</h3>
+
           <ol class="tracklist">
             {% for track in product.metafields.dais.tracklisting.value %}
               <li class="track">{{ track }}</li>

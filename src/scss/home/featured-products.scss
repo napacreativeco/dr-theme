@@ -1,5 +1,7 @@
 section.featured-products {
 
+    padding-top: 40px; 
+
     /* Header */
     header.featured-products--header {
 
@@ -47,11 +49,12 @@ section.featured-products {
                     width: 100%;
                     max-width: 250px;
                     height: auto;
-                    transition: all 0.2s ease-in-out;
+                    transition: all 0.2s 'easeInOutQuint';
+                    transition-delay: 200;
                 }
             }
             .image:hover img {
-                transform: scale(1.03);
+                transform: scale(1.01);
             }
             .info {
                 display: flex;

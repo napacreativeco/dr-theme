@@ -1,5 +1,8 @@
 section.current-artists {
 
+    padding-top: 40px;
+    padding-bottom: 20px;
+
     /* Header */
     header.current-artists--header {
 
@@ -58,11 +61,12 @@ section.current-artists {
                 aspect-ratio: 1/1;
                 width: 350px;
                 margin-bottom: 10px;
-                
+                transition: opacity 0.5 ease-out;
+                transition-delay: 200ms;
             }
 
             .image:hover {
-                opacity: 0.8;
+                opacity: 0.85;
                 cursor: grab;
             }
 
