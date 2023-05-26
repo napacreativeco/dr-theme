@@ -60,8 +60,15 @@
               {% endfor %}
 
             </div>
-            <div class="bandcamp-pagination"></div>
-            <div class="controls"><span class="next"></span><span class="prev"></span></div>
+
+            <div class="actions">
+              <div class="bandcamp-pagination"></div>
+              <div class="controls">
+                <span class="bandcamp-prev"> < </span>
+                <span class="bandcamp-next"> > </span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -75,6 +82,7 @@
               <li class="track">{{ track }}</li>
             {% endfor %}
           </ol>
+
         </div>
 
       </div>
