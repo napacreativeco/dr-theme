@@ -1,7 +1,14 @@
+/*
+* ----------------------------
+* Artists Archive
+* (Current)
+* ----------------------------
+*/
+
 .artist-archive {
 
     .artist-archive--container {
-        padding-bottom: 40px;
+        padding: 0 0px 60px 0px;
     }
     
     .artist-archive--wrapper {
@@ -9,23 +16,19 @@
         .list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
 
             .artist-wrapper .image {
-                height: 300px;
+                height: 400px;
                 width: 100%;
                 cursor: pointer;
                 overflow: hidden;
-                object-fit: cover;
-                object-position: center center;
                 cursor: pointer;
-
-                img {
-                    transition: all 0.22s;
-                    width: 100%;
-                }
+                transition: all 0.22s;
             }
-            .artist-wrapper .image:hover img {
-                transform: scale(1.06);
+            .artist-wrapper .image:hover {
+                background-size: 102%;
+                opacity: 0.8;
             }
 
             .artist-wrapper .artist {

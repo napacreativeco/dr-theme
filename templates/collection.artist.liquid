@@ -10,54 +10,69 @@
 <div class="single-artist">
   <div class="single-artist--wrapper">
 
-    artist info
-    <header class="artist-header">
-      <div class="title">
-        <h1 class="artist-name">
-          {{ collection.title }}
-        </h1>
+
+    {% comment %}
+    Images
+    {% endcomment %}
+    <div class="left">
+      images
+    </div>
+
+    {% comment %} 
+    Product Data
+    {% endcomment %}
+    <div class="right">
+      <header class="artist-header">
+        <div class="title">
+          <h1 class="artist-name">
+            {{ collection.title }}
+          </h1>
+        </div>
+
+        <div class="description">
+          <p class="artist-description">
+            {{ collection.description }}
+          </p>
+        </div>
+      </header>
+
+      <div class="products">
+        <h3>Products</h3>
+        {% paginate collection.products by 10 %}
+
+          <ul class="artist-products">
+    
+            {% for product in collection.products %}
+    
+              <li class="item">
+                <div class="image">
+                  <a href="{{ product.url }}" title="{{ product.title }}">
+                    <img src="{{ product.featured_image | img_url: '700x' }}" alt="{{ product.title }}" />
+                  </a>
+                </div>
+                <div class="title">
+                  <a href="{{ product.url }}" title="{{ product.title }}">
+                    {{ product.title }}
+                  </a>
+                </div>
+              </li>
+    
+            {% else %}
+    
+              <li>There are no products in this view.</li>
+    
+            {% endfor %}
+    
+            {% if paginate.pages > 1 %}
+              {{ paginate | default_pagination }}
+            {% endif %}
+    
+          </ul>
+    
+        {% endpaginate %}
       </div>
+    </div>
 
-      <div class="description">
-        <p class="artist-description">
-          {{ collection.description }}
-        </p>
-      </div>
-    </header>
-
-    artists's products:
-    {% paginate collection.products by 10 %}
-
-      <ul class="artist-products">
-
-        {% for product in collection.products %}
-
-          <li class="item">
-            <div class="image">
-              <a href="{{ product.url }}" title="{{ product.title }}">
-                <img src="{{ product.featured_image | img_url: '700x' }}" alt="{{ product.title }}" />
-              </a>
-            </div>
-            <div class="title">
-              <a href="{{ product.url }}" title="{{ product.title }}">
-                {{ product.title }}
-              </a>
-            </div>
-          </li>
-
-        {% else %}
-
-          <li>There are no products in this view.</li>
-
-        {% endfor %}
-
-        {% if paginate.pages > 1 %}
-          {{ paginate | default_pagination }}
-        {% endif %}
-
-      </ul>
-
-    {% endpaginate %}
 
 
   </div>

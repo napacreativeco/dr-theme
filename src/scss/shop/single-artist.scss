@@ -1,8 +1,20 @@
+/*
+* ----------------------------
+* Artist Page
+* Single Artist Page
+* ----------------------------
+*/
+
 .single-artist {
+
+    padding: 40px 5%;
+    width: 100%;
 
     .single-artist--wrapper {
 
-        padding: 120px 50px;
+        padding: 120px 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
         .artist-header {
             padding: 0 0 40px 0;
@@ -14,12 +26,31 @@
             }
         }
 
+        .description {
+            line-height: 1.4;
+            p {
+                margin: 0 0 20px 0;
+            }
+        }
+
+        .products {
+            h3 {
+                display: block;
+                margin: 0 0 20px 0;
+            }
+        }
+
         ul.artist-products {
             list-style: none;
             margin: 0;
             padding: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 33.33%);
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
         }
     }
 

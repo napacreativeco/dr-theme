@@ -1,7 +1,14 @@
 {
     "workbench.colorCustomizations": {
-        "activityBar.background": "#39273E",
+        "activityBar.background": "#525252",
         "titleBar.activeBackground": "#503657",
-        "titleBar.activeForeground": "#FBFAFC"
+        "titleBar.activeForeground": "#FBFAFC",
+        "editor.background": "#191919",
+        "gitDecoration.modifiedResourceForeground": "#15c9d6",
+        "gitDecoration.addedResourceForeground": "#15c9d6",
+        "gitDecoration.untrackedResourceForeground": "#15c9d6",
+        "gitDecoration.stageModifiedResourceForeground": "#15c9d6",
+        "gitDecoration.deletedResourceForeground": "#15c9d6",
+        "gitDecoration.renamedResourceForeground": "#15c9d6"
     }
 }

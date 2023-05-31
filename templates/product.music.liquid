@@ -1,93 +1,298 @@
-<div style="padding-top: 100px;"></div>
+{% assign add_to_cart = 'Add to cart' %}
+{% assign sold_out = 'Sold Out' %}
+{% assign unavailable = 'Unavailable' %}
 
 <div class="single-product">
   <div class="wrapper">
 
-    <header class="artist-header">
-
-      <div class="band-name">
-        <h1>{{ product.vendor }}</h1>
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
+    <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
+    
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+      
+      <div data-ajax-cart-messages="form"> 
+        <!-- Errors and messages appear here --> 
       </div>
 
-      <div class="data">
-        <div class="product-title">
-          <h2>{{ product.title }}</h2>
+      {% comment %} HEADER {% endcomment %}
+      <header class="artist-header">
+
+        <div class="band-name">
+          <h1>{{ product.vendor }}</h1>
         </div>
-        <div class="product-type">
-          <h2>{{ product.type }}</h2>
-        </div>
-        <div class="product-release">
-          <h2>release date</h2>
-        </div>
-      </div>
 
-    </header>
-
-
-    {% comment %} 
-    // Section One //
-    {% endcomment %}
-    <section class="section-one">
-
-      <div class="left">
-
-        <div class="gallery-swiper swiper">
-          <div class="swiper-wrapper">
-          
-            {% for image in product.media %}
-              <div class="swiper-slide">
-                <img src="{{ image | image_url: width: 450 }}" alt="{{ product.title }} by {{ product.vendor }}" />
-              </div>
-            {% endfor %}
-          
+        <div class="data">
+          <div class="product-title">
+            <h2>{{ product.title }}</h2>
           </div>
-          <div class="gallery-pagination"></div>
+          <div class="product-type">
+            <h2>{{ product.type }}</h2>
+          </div>
+          <div class="product-release">
+            <h2>release date</h2>
+          </div>
         </div>
 
-      </div>
+      </header>
 
-      <div class="right">
+      {% comment %} 
+      // Section One //
+      {% endcomment %}
+      <section class="section-one">
 
-        {% comment %} Bandcamp {% endcomment %}
-        <div class="bandcamp">
-          <div class="bandcamp-swiper swiper">
-            <div class="swiper-wrapper">
+        <div class="section-wrapper">
 
-              {% for camp in product.metafields.dais.bandcamps.value %}
-                <div class="swiper-slide">
-                  {{ camp }}
+          <div class="left">
+
+            <div class="gallery-swiper swiper">
+              <div class="swiper-wrapper">
+              
+                {% for image in product.media %}
+                  <div class="swiper-slide">
+                    <img src="{{ image | image_url: width: 450 }}" alt="{{ product.title }} by {{ product.vendor }}" />
+                  </div>
+                {% endfor %}
+              
+              </div>
+              <div class="gallery-pagination"></div>
+            </div>
+
+          </div>
+
+          <div class="right">
+
+            {% comment %} Bandcamp {% endcomment %}
+            <div class="bandcamp">
+              <div class="bandcamp-swiper swiper">
+                <div class="swiper-wrapper">
+
+                  {% for camp in product.metafields.dais.bandcamps.value %}
+                    <div class="swiper-slide">
+                      {{ camp }}
+                    </div>
+                  {% endfor %}
+
                 </div>
-              {% endfor %}
 
-            </div>
+                <div class="actions">
+                  <div class="bandcamp-pagination"></div>
+                  <div class="controls">
+                    <span class="bandcamp-prev"> < </span>
+                    <span class="bandcamp-next"> > </span>
+                  </div>
+                </div>
 
-            <div class="actions">
-              <div class="bandcamp-pagination"></div>
-              <div class="controls">
-                <span class="bandcamp-prev"> < </span>
-                <span class="bandcamp-next"> > </span>
               </div>
             </div>
 
+            {% comment %} Tracklisting {% endcomment %}
+            <div class="tracklisting">
+
+              <h3>{{ 'Tracklisting' | escape }}</h3>
+
+              <ol class="tracklist">
+                {% for track in product.metafields.dais.tracklisting.value %}
+                  <li class="track">{{ track }}</li>
+                {% endfor %}
+              </ol>
+
+            </div>
+
           </div>
-        </div>
-
-        {% comment %} Tracklisting {% endcomment %}
-        <div class="tracklisting">
-
-          <h3>{{ 'Tracklisting' | escape }}</h3>
-
-          <ol class="tracklist">
-            {% for track in product.metafields.dais.tracklisting.value %}
-              <li class="track">{{ track }}</li>
-            {% endfor %}
-          </ol>
 
         </div>
+      </section>
 
-      </div>
+      {% comment %} 
+      // Section Two //
+      {% endcomment %}
+      <section class="section-two">
 
-    </section>
+        <details class="description accordion">
+          <summary>
+            <span>{{ 'Description' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>{{ product.description }}</p>
+          </div>
+        </details>
+
+        <details class="shipping-info accordion">
+          <summary>
+            <span>{{ 'Shipping & Return Policy' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>shipping and return info here</p>
+          </div>
+        </details>
+
+        <details class="care-instructions accordion">
+          <summary> 
+            <span>{{ 'Care Instructions' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>care instructions here</p>
+          </div>
+        </details>
+
+        
+
+
+      </section>
+
+      {% comment %} 
+      // Section Three //
+      {% endcomment %}
+      <section class="section-three">
+
+        
+        {% comment %} ACTIONS {% endcomment %}
+        <div class="actions">
+
+          {% comment %} Variants {% endcomment %}  
+          <div id="product-variants" class="variants {% if hide_default_title %} hidden{% endif %}">
+
+            {% assign hide_default_title = false %}
+            {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+              {% assign hide_default_title = true %}
+            {% endif %}     
+
+            {% if product.variants.size > 1 %} 
+
+              <script type="text/javascript" charset="utf-8">
+                jQuery(function() { 
+                  var first_variant_price = jQuery("ul li input[type='radio']:checked").attr("data-price");
+                  var first_variant_compare_at_price = jQuery("ul li input[type='radio']:checked").attr("data-compare-at-price") || ''; 
+
+                  jQuery(".price-field span").html(first_variant_price);
+
+                  jQuery(".price-field del").html(first_variant_compare_at_price);
+
+                  jQuery("input[type='radio']").click(function() {
+
+                    var variant_price = jQuery(this).attr("data-price");
+                    jQuery(".price-field span").html(variant_price);
+                    
+                    var variant_compare_at_price = jQuery(this).attr("data-compare-at-price") || '';
+                    jQuery(".price-field del").html(variant_compare_at_price);
+
+                  });
+                });
+              </script>
+
+              <ul class="variants-list">
+                {% assign found_available_variant = false %}
+                {% for variant in product.variants %}
+                  <li class="switch-field">
+                      {% if variant.available %}
+                          <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_with_currency }}"{% endif %} data-price="{{ variant.price | money_with_currency }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false  %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
+                          
+                          <label for="{{ variant.id }}">
+                            {{ variant.title }}
+                          </label>
+                      {% else %}
+                          <input type="radio" class="out-of-stock" id="{{ variant.id }}" value="{{ variant.id }}" name="id" />
+                          <label for="{{ variant.id }}" class="out-of-stock">
+                            {{ variant.title }}
+                          </label>
+                      {% endif %}
+                    </li>
+                {% endfor %}
+              </ul>
+
+            {% else %}
+          
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          
+            {% endif %}
+
+          </div>
+
+        </div>
+
+        {% comment %} Add to cart {% endcomment %}
+        <div id="product-add">
+          {% assign variant = product.selected_or_first_available_variant %}
+          <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }} ({{ variant.price | money_without_trailing_zeros }})">
+        </div>
+
+        <div data-ajax-cart-messages="{{ item.key }}"></div>
+
+      </section>
+      
+    </form>
 
   </div>
 </div>
+
+
+<script>
+  
+  var selectCallback = function(variant, selector) {
+
+    if (variant) {
+      
+      // Swap image.
+      if (variant.featured_image) {
+        var newImage = variant.featured_image; // New image object.
+        var mainImageDomEl = jQuery('.product-photo-container img')[0]; // DOM element of main image we need to swap.
+        Shopify.Image.switchImage(newImage, mainImageDomEl, switchImage); // Define switchImage (the callback) in your theme's JavaScript file.
+      }
+      
+      // Selected a valid variant that is available.
+      if (variant.available) {
+            
+        // Enabling add to cart button.
+        jQuery('#add').removeClass('disabled').prop('disabled', false).val({{ add_to_cart | json }});
+      
+        // If item is backordered yet can still be ordered, we'll show special message.
+        if (variant.inventory_management && variant.inventory_quantity <= 0) {
+          jQuery('#selected-variant').html({{ product.title | json }}{% unless hide_default_title %} + ' - ' + variant.title{% endunless %});
+          jQuery('#backorder').removeClass("hidden");
+        } else {
+          jQuery('#backorder').addClass("hidden");
+        }
+        
+      } else {
+        // Variant is sold out.
+        jQuery('#backorder').addClass('hidden');
+        jQuery('#add').val({{ sold_out | json }}).addClass('disabled').prop('disabled', true);       
+      }
+      
+      // Whether the variant is in stock or not, we can update the price and compare at price.
+      if ( variant.compare_at_price > variant.price ) {
+        jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+      } else {
+        jQuery('#product-price').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+      }        
+
+    } else {
+      // variant doesn't exist.
+      jQuery('#product-price').empty();
+      jQuery('#backorder').addClass('hidden');
+      jQuery('#add').val({{ unavailable | json }}).addClass('disabled').prop('disabled', true);
+    }
+
+  };
+    
+  jQuery(function($) {
+
+    new Shopify.OptionSelectors('product-select', { product: {{ product | json }}, onVariantSelected: selectCallback, enableHistoryState: true });
+    
+    // Add label if only one product option and it isn't 'Title'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+    {% endif %}
+
+  });
+
+  Shopify.Image.preload({{ product.images | json }}, 'grande');
+  Shopify.Image.preload({{ product.images | json }}, '1024x1024');
+
+</script>

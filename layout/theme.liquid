@@ -97,7 +97,7 @@
       {% render 'footer' %}
     </footer>
 
-    {% comment %} Swiper {% endcomment %}
+    {% comment %} SWIPER {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
       (function($) {
@@ -158,6 +158,59 @@
         } else {
           navbar.style.top = '0';
         } lastScrollTop = scrollTop;
+      });
+    </script>
+
+
+    {% comment %} AJAX CART {% endcomment %}
+    {{ 'liquid-ajax-cart.js' | asset_url | script_tag }}
+  
+    <script type="application/json" data-ajax-cart-initial-state >
+      {{ cart | json }}
+    </script>
+  
+    {% comment %} Cart Drawer {% endcomment %}
+    <div class="cart-drawer">
+      {% section 'cart-drawer' %}
+    </div>
+  
+    {% comment %} Slideout on Add to Cart {% endcomment %}
+    <script type="module">
+      import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart.js" | asset_url }}';
+  
+      subscribeToCartSectionsUpdate( sections => {
+        console.log('Sections are updated: ', sections);
+  
+      });
+    </script>
+  
+    <script type="application/json" data-ajax-cart-configuration>
+      {
+        "addToCartCssClass": "js-my-cart-open"
+      }
+    </script>
+  
+  
+    
+    <script type="module">
+      import { subscribeToCartAjaxRequests, subscribeToCartStateUpdate } from '{{ "liquid-ajax-cart.js" | asset_url }}';
+  
+      // Show a pop-up message after adding to cart
+      subscribeToCartAjaxRequests(( requestState, subscribeToResult ) => {
+        if ( requestState.requestType === 'add' ) {
+          subscribeToResult( requestState => {
+            if ( requestState.responseData?.ok ) {
+              let productName = requestState.responseData.body.title;
+              if ( requestState.responseData.body.items?.length === 1 ) {
+                productName = requestState.responseData.body.items[0].title;
+              }
+  
+              //cartSlideOut();
+  
+              console.log(`${ productName ? '«' + productName + '» is' : 'Products are' } successfully added`);
+            }
+          });
+        }
       });
     </script>
 

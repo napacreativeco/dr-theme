@@ -30,8 +30,9 @@
                 {% for collection in collections %}
                   {% if collection.title == product.vendor %}
 
-                    <div onclick="window.location='{{ collection.url }}';"class="image">
-                      <img src="{{ collection.image | image_url: width: 900 }}" width="{{ collection.image.width }}" height="{{ collection.image.height }}" loading="lazy" alt={{ collection.title }}" />
+                    <div onclick="window.location='{{ collection.url }}';"
+                      class="image"
+                      style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
                     </div>
 
                     <div class="artist">

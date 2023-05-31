@@ -126,6 +126,10 @@
             color: var(--black) !important;
         }
     }
+
+    .submenu a:hover {
+        text-decoration: underline;
+    }
 }
 
 .navbar-mobile { display: none; }

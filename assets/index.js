@@ -73,5 +73,13 @@
         $(this).addClass('opened');
     });
 
+    // cart
+    $('.cart-nav-opener').on('click', function() {
+        $('body').addClass('js-my-cart-open');
+    });
+    $('.cart-drawer--close').on('click', function() {
+        $('body').removeClass('js-my-cart-open');
+    });
+
 
 })(jQuery);
