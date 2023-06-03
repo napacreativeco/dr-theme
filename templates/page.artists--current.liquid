@@ -3,14 +3,12 @@
 {% endcomment %}
 
 
-<div class="artist-archive"
-  data-page="current-artists"
-  style="padding-top: 100px;">
+<div class="artist-archive" data-page="current-artists" style="padding-top: 100px;">
 
   {% comment %} Header {% endcomment %}
   <header class="archive--header">
     <div class="archive--header-wrapper">
-      <h2 class="title">Current Artists</h2>
+      <h2 class="title">{{ 'Current Artists' | escape }}</h2>
       <a class="view-more" href="/collections/releases">View more</a>
     </div>
   </header>
@@ -36,9 +34,11 @@
                     </div>
 
                     <div class="artist">
-                      <a href="{{ collection.url }}" title="{{ collection.title }}">
-                        {{ collection.title }}
-                      </a>
+                      <h3>
+                        <a href="{{ collection.url }}" title="{{ collection.title }}">
+                          {{ collection.title }}
+                        </a>
+                      </h3>
                     </div>
 
                   {% endif %}

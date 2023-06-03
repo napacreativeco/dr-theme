@@ -10,6 +10,7 @@
 @import 'global/reset.scss';
 @import 'global/app.scss';
 @import 'global/variables.scss';
+@import 'global/typography.scss';
 @import 'global/footer.scss';
 
 /* Nav */
@@ -17,19 +18,24 @@
 @import 'navigation/mobilenav.scss';
 
 /* Home */
+@import 'home/section-global.scss';
 @import 'home/hero.scss';
 @import 'home/latest-releases.scss';
 @import 'home/featured-products.scss';
 @import 'home/large-nav.scss';
-@import 'home/section-global.scss';
 @import 'home/watch.scss';
 @import 'home/current-artists.scss';
 
+/* Pages */
+@import 'pages/current-artists.scss';
+
+
 /* Shop */
-@import 'shop/current-artists.scss';
 @import 'shop/header.scss';
 @import 'shop/single-product--music.scss';
 @import 'shop/single-artist.scss';
 @import 'shop/default-collection.scss';
 @import 'shop/bandcamp-swiper.scss';
 @import 'shop/cart-drawer.scss';
+@import 'shop/radio-buttons.scss';
+@import 'shop/sorting.scss';

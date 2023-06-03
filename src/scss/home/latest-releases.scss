@@ -1,36 +1,6 @@
 section.latest-releases {
 
     padding-top: 40px; 
-    
-    /* Header */
-    header.latest-releases--header {
-
-        padding: 60px 50px 40px 50px;
-
-        .latest-releases--header-wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            h2.title {
-                display: inline-block;
-                font-size: 34px;
-                text-transform: uppercase;
-                padding-bottom: 4px;
-                border-bottom: 2px solid var(--black);
-            }
-    
-            a.view-more {
-                text-transform: uppercase;
-            }
-
-            a.view-more:hover {
-                text-decoration: underline;
-            }
-
-        }
-
-    }
 
     /* Body */
     .latest-releases--wrapper {
@@ -47,6 +17,12 @@ section.latest-releases {
                     height: auto;
                     aspect-ratio: 1/1;
                     transition: all 0.2s ease-in-out;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid var(--black);
                 }
             }
             .image:hover img {
@@ -66,21 +42,23 @@ section.latest-releases {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                gap: 12px;
+                gap: 3px;
             }
 
             .artist h3 {
                 text-transform: uppercase;
                 padding-bottom: 6px;
-                font-size: 20px;
+                font-size: 2.4rem;
             }
 
             .title h4 {
                 color: var(--grey);
-                font-size: 16px;
+                font-size: 1.6rem;
             }
 
-            // .price { }
+            .price {
+                font-size: 1.6rem;
+            }
 
         }
     }
@@ -89,26 +67,40 @@ section.latest-releases {
 @media screen and (max-width: 768px) {
 
     section.latest-releases {
-        header.latest-releases--header {
-            padding: 60px 20px 20px 20px;
 
-            .latest-releases--header-wrapper {
-                h2.title {
-                    display: inline-block;
-                    font-size: 20px;
-                }
-            }
-
+        /* Header */
+        h2.title {
+            font-size: 2rem;
         }
+
         .latest-releases--wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 12px;
+            padding: 0 var(--side-padding);
 
-            .info {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
+
+            .release {
+
+                .left {
+                    gap: 0px;
+                }
+
+                .artist {
+                    h3 {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                .title {
+                    h4 {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .info {
+                    padding: 10px 0;
+                }
             }
 
             .price {

@@ -1,0 +1,8 @@
+{% comment %} Artist List {% endcomment %}
+<select>
+    {% for collection in collections %}
+        <option>
+            <a href="{{ collection.url }}" title="">{{ collection.title }}</a>
+        </option>
+    {% endfor %}
+</select>

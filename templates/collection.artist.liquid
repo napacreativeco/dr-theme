@@ -11,17 +11,19 @@
   <div class="single-artist--wrapper">
 
 
-    {% comment %}
-    Images
-    {% endcomment %}
+    {% comment %} Images {% endcomment %}
     <div class="left">
-      images
+      {% for product in collection.products %}
+        {% for nice in collection.metafields.dais.artist_gallery.value %}
+          <img src="{{ nice | image_url: width: 1000 }}" alt="{{ product.title }}" />
+        {% endfor %}
+      {% endfor %}
     </div>
 
-    {% comment %} 
-    Product Data
-    {% endcomment %}
+    {% comment %} Product Data {% endcomment %}
     <div class="right">
+
+      {% comment %} Header {% endcomment %}
       <header class="artist-header">
         <div class="title">
           <h1 class="artist-name">
@@ -36,12 +38,16 @@
         </div>
       </header>
 
+      {% comment %} Products {% endcomment %}
       <div class="products">
-        <h3>Products</h3>
+
+        <div class="title">
+          <h3>Products</h3>
+        </div>
+
         {% paginate collection.products by 10 %}
 
           <ul class="artist-products">
-    
             {% for product in collection.products %}
     
               <li class="item">
@@ -62,13 +68,12 @@
               <li>There are no products in this view.</li>
     
             {% endfor %}
-    
-            {% if paginate.pages > 1 %}
-              {{ paginate | default_pagination }}
-            {% endif %}
-    
           </ul>
     
+          {% if paginate.pages > 1 %}
+            {{ paginate | default_pagination }}
+          {% endif %}
+
         {% endpaginate %}
       </div>
     </div>

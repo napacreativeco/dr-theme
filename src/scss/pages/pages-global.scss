@@ -1,0 +1,34 @@
+.artist-archive {
+
+    /* Header */
+    header.archive--header {
+
+        padding: 60px 50px 40px 50px;
+
+        .archive--header-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        h2.title {
+            display: inline-block;
+            font-size: var(--section-title);
+            text-transform: uppercase;
+            padding-bottom: 4px;
+            border-bottom: 2px solid var(--black);
+            letter-spacing: -0.2rem;
+        }
+
+        a.view-more {
+            font-size: var(--view-more-size);
+            text-transform: uppercase;
+        }
+        
+        a.view-more:hover {
+            text-decoration: underline;
+        }
+
+    }
+}

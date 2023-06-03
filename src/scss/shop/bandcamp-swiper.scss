@@ -11,6 +11,7 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
         gap: 22px;
 
         .controls {
@@ -23,6 +24,7 @@
     .bandcamp-next,
     .bandcamp-prev {
         cursor: pointer;
+        font-size: 2rem;
     }
 
     .swiper-pagination-horizontal {
@@ -32,6 +34,7 @@
     .bandcamp-pagination {
         width: auto;
         text-align: left;
+        margin-top: 4px;
 
         .swiper-pagination-bullet {
             width: 12px;

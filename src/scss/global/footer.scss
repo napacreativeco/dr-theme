@@ -1,11 +1,11 @@
 .footer {
 
-    background: var(--grey-mid);
+    background: var(--grey-light);
     
     .footer--wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 40px 100px 60px 100px;
+        grid-template-columns: 4fr 2fr;
+        padding: 60px 5% 80px 5%;
 
         .left {
             
@@ -27,12 +27,45 @@
 
                 a {
                     color: var(--grey);
+                    font-size: 1.5rem;
                 }
+
+
 
             }
 
         }
 
+        .right {
+
+            .top {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        
+            
+        }
+
     }
 
+    .attribution {
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px 0 40px 10px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 767px) {
+ 
+    .footer {
+        .footer--wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }

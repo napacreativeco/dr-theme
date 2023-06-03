@@ -1,12 +1,11 @@
 section.current-artists {
 
-    padding-top: 40px;
     padding-bottom: 20px;
 
     /* Header */
     header.current-artists--header {
 
-        padding: 60px 50px 40px 50px;
+        padding: 60px var(--side-padding) 40px var(--side-padding);
 
         .current-artists--header-wrapper {
             display: flex;
@@ -15,17 +14,10 @@ section.current-artists {
 
             h2.title {
                 display: inline-block;
-                font-size: 34px;
+                font-size: var(--section-title);
                 text-transform: uppercase;
                 padding-bottom: 4px;
                 border-bottom: 2px solid var(--black);
-            }
-    
-            a.view-more {
-                text-transform: uppercase;
-            }
-            a.view-more:hover {
-                text-decoration: underline;
             }
 
         }
@@ -37,7 +29,7 @@ section.current-artists {
         overflow: hidden;
         width: 100%;
         max-width: 100%;
-        padding: 0 50px 40px 50px;
+        padding: 0 var(--side-padding) 40px var(--side-padding);
 
         ul.current-artists--list {
             display: flex;
@@ -46,7 +38,7 @@ section.current-artists {
             gap: 12px;
             width: 100%;
             overflow-x: scroll;
-            padding: 0 0 20px 0;
+            padding: 0 0 60px 0;
             list-style: none;
         }
 
@@ -72,6 +64,10 @@ section.current-artists {
 
             .image:active {
                 cursor: grabbing;
+            }
+
+            a {
+                font-size: 2.2rem;
             }
         }
 

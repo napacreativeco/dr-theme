@@ -1,5 +1,8 @@
 <section class="latest-releases section" data-aos="fade-down" data-aos-delay="300">
 
+  {% comment %} 
+    Header
+  {% endcomment %}
   <header class="section--header">
     <div class="section--header-wrapper">
       <h2 class="title" data-aos="fade-down">
@@ -25,7 +28,11 @@
           {% endcomment %}
           <div class="image">
             <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
-              <img src="{{ album.featured_image | image_url: width: 900 }}" alt="{{ album.title }}" loading="lazy" />
+              {% if album.featured_image %}
+                <img src="{{ album.featured_image | image_url: width: 900 }}" alt="{{ album.title }}" loading="lazy" />
+              {% else %}
+                {{ 'image' | placeholder_svg_tag }}
+              {% endif %}
             </a>
           </div>
 
@@ -34,6 +41,7 @@
           {% endcomment %}
           <div class="info">
 
+            {% comment %} Left {% endcomment%}
             <div class="left">
               <div class="artist">
                 <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
@@ -47,6 +55,7 @@
               </div>
             </div>
 
+            {% comment %} Right {% endcomment%}
             <div class="right">
               <div class="price type-writer">
                 <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">

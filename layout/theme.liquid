@@ -214,6 +214,22 @@
       });
     </script>
 
+    <script type="module">
+      import {bandcamp} from '../node_modules/bandcamp-scraper/lib/index';
+
+      $(document).ready(function() {
+        const artistUrl = 'http://musique.coeurdepirate.com'
+        bandcamp.getArtistInfo(artistUrl, function (error, artistInfo) {
+          if (error) {
+            console.log(error)
+          } else {
+            console.log(artistInfo)
+          }
+        })
+      })
+
+    </script>
+
   </body>
 
 </html>

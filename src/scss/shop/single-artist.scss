@@ -7,21 +7,25 @@
 
 .single-artist {
 
-    padding: 40px 5%;
+    padding: 40px var(--side-padding);
     width: 100%;
 
     .single-artist--wrapper {
 
-        padding: 120px 0px;
+        padding: 120px 0 0 0;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 54% auto;
+        grid-gap: var(--side-padding);
 
+
+        // Header
         .artist-header {
             padding: 0 0 40px 0;
 
             .title {
                 h1 {
-                    font-size: 62px;
+                    font-size: 9.1rem;
+                    letter-spacing: -0.4rem;
                 }
             }
         }
@@ -29,29 +33,83 @@
         .description {
             line-height: 1.4;
             p {
+                font-size: 1.62rem;
                 margin: 0 0 20px 0;
             }
         }
 
-        .products {
-            h3 {
-                display: block;
-                margin: 0 0 20px 0;
-            }
-        }
-
-        ul.artist-products {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(3, 33.33%);
-            width: 100%;
-
+        // Left
+        .left{
             img {
                 width: 100%;
             }
         }
+
+
+        // Right
+        .right {
+
+            .products {
+
+                .title h3 {
+                    font-size: 2.4rem;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    margin: 0 0 20px 0;
+                    border-bottom: var(--border-blk);
+                }
+
+            }
+
+            ul.artist-products {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+                width: 100%;
+                transition: var(--quick-transition);
+    
+
+                .item {
+                    .title {
+                        font-size: 2rem;
+                    }
+
+                    .title:hover {
+                        text-decoration: underline;
+                    }
+
+                    img {
+                        width: 100%;
+                        margin-bottom: 12px;
+                    }
+    
+                    img:hover {
+                        opacity: 0.6;
+                    }
+                }
+
+
+            }
+
+        }
+
+
+
     }
 
+}
+
+
+@media screen and (max-width: 767px) {
+    .single-artist {
+        .single-artist--wrapper {
+            padding: 0px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            grid-gap: var(--side-padding);
+            
+        }
+    }
 }
