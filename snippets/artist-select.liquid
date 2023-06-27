@@ -1,8 +1,33 @@
-{% comment %} Artist List {% endcomment %}
-<select>
-    {% for collection in collections %}
-        <option>
-            <a href="{{ collection.url }}" title="">{{ collection.title }}</a>
-        </option>
-    {% endfor %}
-</select>
+
+
+        {% comment %} Artist List {% endcomment %}
+        <select class="artist-select">
+            {%- for filter in collection.filters -%}
+            
+
+                        {%- case filter.label -%}
+                            {% when 'Brand' %}
+
+                                {% for val in filter.values %}
+                                    <option value="{{ val.value }}">
+                                        {{ val.label }}
+                                    </option>
+                                {% endfor %}
+                        {% endcase %}
+              
+            
+            {% endfor %}
+        </select>
+        
+<script>
+(function($) {
+    $(document).ready(function() {
+        $(".artist-select").change(function(){
+            var val =  $(".artist-select > option:selected").attr('value');
+
+            window.location="?filter.p.vendor=" + val;
+
+        });
+    });
+})(jQuery);
+</script>

@@ -69,6 +69,7 @@
             .item {
                 padding: 12px 0;
                 border-bottom: 2px solid var(--white);
+                width: 100%;
             }
 
             .item-wrapper {
@@ -76,6 +77,15 @@
                 grid-template-columns: 54% 1fr 1fr;
                 align-items: center;
                 grid-gap: 10px;
+
+                .quantity-input {
+                    text-align: right;
+                }
+
+                .item-total {
+                    text-align: right;
+                }
+
             }
 
             input[type="number"] {
@@ -164,7 +174,11 @@
     }
 
     .view-cart {
-        font-size: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .view-cart:hover {
+        text-decoration: underline;
     }
 
 }

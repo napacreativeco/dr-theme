@@ -35,6 +35,9 @@ section.featured-products {
             display: flex;
             flex-direction: row;
             align-items: center;
+            background: var(--grey-light);
+            border-radius: 3px;
+            overflow: hidden;
 
             .image {
                 overflow: hidden;
@@ -59,11 +62,12 @@ section.featured-products {
             .image:hover img {
                 transform: scale(1.01);
             }
+
             .info {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                gap: 12px;
+                gap: 3px;
                 height: 100%;
                 background: var(--bright-white);
                 padding: 24px 18px;

@@ -30,21 +30,72 @@
                     font-size: 1.5rem;
                 }
 
-
-
             }
 
         }
 
         .right {
 
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
             .top {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 width: 100%;
+            }    
+
+            .title {
+                font-size: 2rem;
             }
-        
+
+            .offer {
+                font-family: var(--type-writer);
+                font-size: 1.3rem;
+                text-align: right;
+            }
+
+            form#contact_form {
+                display: grid;
+                grid-template-columns: 10fr 2fr;
+            }
+
+            .email,
+            .submit {
+                display: inline;
+            }
+
+            .email {
+                position: relative;
+            }
+
+            label[for="email"] {
+                position: absolute;
+                top: 50%;
+                left: 12px;
+                transform: translateY(-50%);
+                font-family: var(--type-writer);
+                font-size: 14px;
+            }
+
+            input[type="email"] {
+                padding: var(--input-padding);
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #dfe1e5;
+                width: 100%;
+            }
+
+            input[type="submit"] {
+                padding: var(--input-padding);
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #dfe1e5;
+            }
             
         }
 
