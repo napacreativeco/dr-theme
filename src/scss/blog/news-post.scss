@@ -1,0 +1,33 @@
+.blog-post {
+    .blog-post-wrapper {
+        padding: 100px 0 40px 0;
+        min-height: 100dvh;
+
+        article {
+            padding: 0px var(--side-padding);
+
+            header {
+                padding: 0 0 50px 0;
+                .meta {
+                    font-size: 1.6rem;
+                    font-family: var(--type-writer);
+                    text-transform: uppercase;
+                    padding: 10px 0;
+                }
+
+                h1 {
+                    font-size: 6rem;
+                }
+    
+            }
+
+
+            .article-body {
+                border-top: var(--border-gry);
+                padding: 40px 0;
+                font-size: 2rem;
+            }
+
+        }
+    }
+}

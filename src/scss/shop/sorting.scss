@@ -76,11 +76,10 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        padding: 0px;
+        padding: 0 0 20px 0;
 
         // Center
         .center {
-
             padding: 0 20px 0 0;
             position: relative;
             border-right: var(--border-gry);
@@ -168,7 +167,20 @@
                 .price-range {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 10px;
+                    gap: 40px;
+
+                    input[type="number"] {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+
+                    div {
+                        display: grid;
+                        grid-template-columns: auto 1fr 20px;
+                        grid-gap: 4px;
+                        align-items: center;
+                        font-size: 1.6rem;
+                    }
                 }
                 
                 label.sort-by {
@@ -183,7 +195,6 @@
 
         // Right
         .right {
-
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -330,18 +341,6 @@
                             border-top: var(--border-gry);
                             padding-top: 20px;
 
-                            input[type="number"] {
-                                max-width: 100%;
-                                width: 100%;
-                            }
-
-                            div {
-                                display: grid;
-                                grid-template-columns: auto 1fr 20px;
-                                grid-gap: 10px;
-                                align-items: center;
-                                font-size: 1.6rem;
-                            }
                         }
 
                     }
