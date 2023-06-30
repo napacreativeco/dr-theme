@@ -1,19 +1,56 @@
 {% comment %}
 Collection sorting. Needs the JavaScript that is at the bottom of this file.
 {% endcomment %}
-<div class="product-sorting">
-  <div class="wrapper">
 
-    {% comment %} Price Filter {% endcomment %}
-    <div class="left">
-      <h3>Sort</h3>
-      {% render 'sorting-radios' %}
+<details class="product-sorting">
+
+  <summary>
+    <div class="summary-wrapper">
+      <div class="title">
+        <h2>Filters</h2>
+      </div>
+    
+      {% comment %} Active Filters {% endcomment %}
+      <div class="active-filters">
+        <ul>
+
+          <li class="clear-all">
+            <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+          </li>
+
+          {%- for filter in collection.filters -%}
+              {%- if filter.type == "price_range" -%}
+                {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    <li class="active-filters__remove-filter">
+                        {%- assign min_value = filter.min_value.value | default: 0 -%}
+                        {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                        {{ min_value | money }} - {{ max_value | money }} <span class="icon"><a href="{{ filter.url_to_remove }}" title="">&times;</a></span>
+                    </li>
+                {%- endif -%}
+              {%- else -%}
+                {%- for filter_value in filter.active_values -%}
+                    <li class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
+                      {{ filter_value.label }} <span class="icon"><a href="{{ filter.url_to_remove }}" title="">&times;</a></span>
+                    </li>
+                {%- endfor -%}
+              {%- endif- %}
+          {%- endfor -%}
+          
+        </ul>
+      </div>
     </div>
+  </summary>
+
+
+
+  <div class="wrapper">
 
     {% comment %} Filter Blocks {% endcomment %}
     <div class="center">
-      <h3>Filter</h3>
-      {% render 'product-filter-blocks' %}
+      <div class="center-wrapper">
+        {% render 'sorting-radios' %}
+        {% render 'product-filter-blocks' %}
+      </div>
     </div>
 
     {% comment %} Search & Artists {% endcomment %}
@@ -30,7 +67,7 @@ Collection sorting. Needs the JavaScript that is at the bottom of this file.
     </div>
 
   </div>
-</div>
+</details>
 
 
 

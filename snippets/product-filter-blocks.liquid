@@ -24,14 +24,14 @@ Filter Blocks
                     {%- when 'boolean' or 'list' -%}
 
                         {%- case filter.label -%}
-                            {% when 'Brand' %}
+                            {% when 'Artist' %}
 
                         
                             {% else %}
-                                <ul class="filter-group filter-list">
+                                <ul class="filter-group filter-list checkboxes">
                                     {%- for filter_value in filter.values -%}
                                         <li class="item">
-                                            <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                                            <label class="checkbox-label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
                                                 <input type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
                                                 {% if filter_value.active -%}checked{%- endif %}
                                                 {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
@@ -65,7 +65,7 @@ Filter Blocks
                                     value="{{ filter.min_value.value | money_without_trailing_zeros | replace: ',', '' }}"
                                 {%- endif %}
                                 type="number"
-                                placeholder="0"
+                                placeholder="0.0"
                                 min="0"
                                 max="{{ filter.range_max | money_without_trailing_zeros | replace: ',', '' }}">
                             <label for="Filter-{{ filter.min_value.param_name }}">
@@ -105,31 +105,6 @@ Filter Blocks
     {%- endfor -%}
     </div>
 
-    {% comment %} 
-    ---------------
-    Active Filters
-    ---------------
-    {% endcomment %}
-    <div class="active-filters">
-        <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
 
-        {%- for filter in collection.filters -%}
-            {%- if filter.type == "price_range" -%}
-                {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-                    <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
-                        {%- assign min_value = filter.min_value.value | default: 0 -%}
-                        {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
-                        {{ min_value | money }} - {{ max_value | money }} X
-                    </a>
-                {%- endif -%}
-            {%- else -%}
-                {%- for filter_value in filter.active_values -%}
-                    <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
-                    {{ filter.label }}: {{ filter_value.label }} X
-                    </a>
-                {%- endfor -%}
-            {%- endif- %}
-        {%- endfor -%}
-    </div>
 
 </form>

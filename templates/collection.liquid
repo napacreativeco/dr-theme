@@ -5,18 +5,32 @@
 {% endcomment %}
 
 <div class="default-collection">
+
+  {% render 'breadcrumbs' %}
+
   <div class="row">
     {% paginate collection.products by 10 %}
 
-      {% render 'product-sorting' %}
+      {% if collection.handle == 'dais-records' %}
 
-      {% render 'list-tags' %}
+        {% render 'product-sorting--dais' %}
 
-      {% if collection.description.size > 0 %}
-        {{ collection.description }}
+      {% else %}
+
+        {% render 'product-sorting' %}
+        {% render 'list-tags' %}
+
       {% endif %}
 
-      {% comment %} PRODUCTS {% endcomment %}
+
+      {% comment %} Description {% endcomment %}
+      {% if collection.description.size > 0 %}
+        <div class="collection-description">
+          <p>{{ collection.description }}</p>
+        </div>
+      {% endif %}
+
+      {% comment %} Products {% endcomment %}
       <section class="product-section">
         <ul class="products">
           {% for product in collection.products %}
@@ -61,6 +75,7 @@
       </section>
 
 
+      {% comment %} Pagination {% endcomment %}
       {% if paginate.pages > 1 %}
         {{ paginate | default_pagination }}
       {% endif %}

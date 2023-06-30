@@ -12,6 +12,7 @@
 @import 'global/variables.scss';
 @import 'global/typography.scss';
 @import 'global/footer.scss';
+@import 'global/breadcrumbs.scss';
 
 /* Nav */
 @import 'navigation/navbar.scss';
@@ -28,7 +29,11 @@
 
 /* Pages */
 @import 'pages/current-artists.scss';
+@import 'pages/pages-global.scss';
 
+/* Blogs */
+@import 'blog/news.scss';
+@import 'blog/videos.scss';
 
 /* Shop */
 @import 'shop/header.scss';
@@ -37,5 +42,6 @@
 @import 'shop/default-collection.scss';
 @import 'shop/bandcamp-swiper.scss';
 @import 'shop/cart-drawer.scss';
+@import 'shop/cart-page.scss';
 @import 'shop/radio-buttons.scss';
 @import 'shop/sorting.scss';

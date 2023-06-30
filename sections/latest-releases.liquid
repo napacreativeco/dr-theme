@@ -1,4 +1,4 @@
-<section class="latest-releases section" data-aos="fade-down" data-aos-delay="300">
+<section class="latest-releases section">
 
   {% comment %} 
     Header
@@ -26,14 +26,12 @@
           {% comment %} 
             Image
           {% endcomment %}
-          <div class="image">
-            <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
-              {% if album.featured_image %}
-                <img src="{{ album.featured_image | image_url: width: 900 }}" alt="{{ album.title }}" loading="lazy" />
-              {% else %}
-                {{ 'image' | placeholder_svg_tag }}
-              {% endif %}
-            </a>
+          <div class="image" onclick="window.location='{{ album.url }}';">
+            {% if album.featured_image %}
+              <img src="{{ album.featured_image | image_url: width: 900 }}" alt="{{ album.title }}" loading="lazy" />
+            {% else %}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
           </div>
 
           {% comment %} 
@@ -41,7 +39,7 @@
           {% endcomment %}
           <div class="info">
 
-            {% comment %} Left {% endcomment%}
+            {% comment %} Left {% endcomment %}
             <div class="left">
               <div class="artist">
                 <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">
@@ -55,7 +53,7 @@
               </div>
             </div>
 
-            {% comment %} Right {% endcomment%}
+            {% comment %} Right {% endcomment %}
             <div class="right">
               <div class="price type-writer">
                 <a href="{{ album.url }}" title="{{ album.vendor }} - {{ album.title }}">

@@ -9,7 +9,7 @@
         ul.products {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 12px;
+            grid-gap: 40px 14px;
             list-style: none;
             width: calc(100% - 10%);
             margin: 0 5%;
@@ -58,6 +58,15 @@
                     font-size: 1.5rem;
                 }
             }
+        }
+    }
+
+    .collection-description {
+        padding: 20px var(--side-padding);
+
+        p {
+            font-size: 1.8rem;
+            line-height: 1.7;
         }
     }
 

@@ -1,23 +1,23 @@
+{% comment %} 
+Artist Select Element 
+{% endcomment %}
+<select class="artist-select">
+{% for product in collections.all.products %}
 
+    {% case product.type %}
+        {% when 'vinyl' %}
 
-        {% comment %} Artist List {% endcomment %}
-        <select class="artist-select">
-            {%- for filter in collection.filters -%}
-            
-
-                        {%- case filter.label -%}
-                            {% when 'Brand' %}
-
-                                {% for val in filter.values %}
-                                    <option value="{{ val.value }}">
-                                        {{ val.label }}
-                                    </option>
-                                {% endfor %}
-                        {% endcase %}
-              
-            
+            {% for collection in collections %}
+                {% if collection.title == product.vendor %}
+                    <option value="{{ collection.title }}">{{ collection.title }}</option>
+                {% endif %}
             {% endfor %}
-        </select>
+
+
+    {% endcase %}
+{% endfor %}
+</select>
+
         
 <script>
 (function($) {

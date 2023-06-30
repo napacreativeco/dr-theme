@@ -40,6 +40,7 @@
                 ease: 'easeOutExpo',
             });
     
+            
             $(this).text('Menu').removeClass('opened');
 
         } else {
@@ -49,6 +50,8 @@
                 duration: 0.6,
                 ease: 'easeOutExpo',
             });
+
+           
             $(this).text('Close').addClass('opened');
 
         }
@@ -59,18 +62,38 @@
     // MOBILE NAV - SUBMENU        //
     // //////////////////////////////
     $('.has-mobile-dropdown').click(function(e) {
-        e.preventDefault();
-
+        // e.preventDefault();
         var title = $(this).attr('data-title');
 
-        gsap.to( $('[data-menu="'+ title +'"]'), {
-            height: '100%',
-            duration: 0.3
-        });
+        if ( $(this).hasClass('opened-sub') ) {
 
-        $(this).find('.more').css('transform', 'rotate(45deg)');
+            var nearest = $(this).find('.mobile-submenu');
+    
+            $(this).find('.more').text('+');
+            $(this).removeClass('opened-sub');
 
-        $(this).addClass('opened');
+            gsap.to( $(nearest), {
+                height: '0px',
+                duration: 0.6,
+                margin: '0 0 0 0',
+                ease: 'easeOutExpo',
+            });
+
+        } else {
+
+            var nearest = $(this).find('.mobile-submenu');
+            $(this).find('.more').text('-');
+            $(this).addClass('opened-sub');
+
+            gsap.to( $(nearest), {
+                height: '100%',
+                duration: 0.6,
+                margin: '20px 0 10px 0',
+                ease: 'easeOutExpo',
+            });
+
+        }
+
     });
 
     // cart

@@ -30,6 +30,10 @@
                     font-size: 1.5rem;
                 }
 
+                a:hover {
+                    text-decoration: underline;
+                }
+
             }
 
         }
@@ -80,6 +84,7 @@
                 transform: translateY(-50%);
                 font-family: var(--type-writer);
                 font-size: 14px;
+                pointer-events: none;
             }
 
             input[type="email"] {
@@ -117,6 +122,8 @@
         .footer--wrapper {
             display: flex;
             flex-direction: column;
+            gap: 40px;
+            padding: 60px 5% 20px 5%;
         }
     }
 }

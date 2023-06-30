@@ -17,10 +17,20 @@
                 height: 250px;
                 display: flex;
                 margin: 0 0 6px 0;
+                cursor: pointer;
+                transition: var(--hover-transition);
+            }
+
+            .image:hover {
+                opacity: 0.8;
             }
 
             h3 {
                 font-size: 2.1rem;
+            }
+
+            h3:hover {
+                text-decoration: underline;
             }
         }
 
