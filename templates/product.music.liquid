@@ -27,19 +27,19 @@
       <header class="artist-header">
 
         <div class="band-name">
-          <h1>{{ product.vendor }}</h1>
+          <h2>{{ product.vendor }}</h2>
         </div>
 
 
         <div class="data">
           <div class="product-title">
-            <h2>{{ product.title }}</h2>
+            <h1>{{ product.title }}</h1>
           </div>
           <div class="product-type">
             <span>{{ product.type }}</span>
           </div>
           <div class="product-release">
-            <span>release date</span>
+            <span>{{ product.published_at | date: '%B %d, %Y' }}</span>
           </div>
         </div>
 
@@ -77,42 +77,48 @@
           <div class="right">
 
             {% comment %} Bandcamp {% endcomment %}
-            <div class="bandcamp">
+            {% if product.metafields.dais.bandcamps.value != blank %}
+              <div class="bandcamp">
 
-              <h3>{{ 'Listen' | escape }}</h3>
+                <h3>{{ 'Listen' | escape }}</h3>
 
-              <div class="bandcamp-swiper swiper">
-                <div class="swiper-wrapper">
+                <div class="bandcamp-swiper swiper">
+                  <div class="swiper-wrapper">
 
-                  {% for camp in product.metafields.dais.bandcamps.value %}
-                    <div class="swiper-slide">
-                      {{ camp }}
-                    </div>
-                  {% endfor %}
+                    {% for camp in product.metafields.dais.bandcamps.value %}
+                      <div class="swiper-slide">
+                        {{ camp }}
+                      </div>
+                    {% endfor %}
 
-                </div>
-
-                <div class="actions">
-                  <div class="bandcamp-pagination"></div>
-                  <div class="controls">
-                    <span class="bandcamp-prev"> < </span>
-                    <span class="bandcamp-next"> > </span>
                   </div>
-                </div>
 
+                  <div class="actions">
+                    <div class="bandcamp-pagination"></div>
+                    <div class="controls">
+                      <span class="bandcamp-prev"> < </span>
+                      <span class="bandcamp-next"> > </span>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-            </div>
+            {% endif %}
 
             {% comment %} Tracklisting {% endcomment %}
             <div class="tracklisting">
 
               <h3>{{ 'Tracklisting' | escape }}</h3>
 
-              <ol class="tracklist">
-                {% for track in product.metafields.dais.tracklisting.value %}
-                  <li class="track">{{ track }}</li>
-                {% endfor %}
-              </ol>
+              {% if product.metafields.dais.tracklisting.value != blank %}
+                <ol class="tracklist">
+                  {% for track in product.metafields.dais.tracklisting.value %}
+                    <li class="track">{{ track }}</li>
+                  {% endfor %}
+                </ol>
+              {% else %}
+                <p>Tracklisting coming soon</p>
+              {% endif %}
 
             </div>
 

@@ -1,21 +1,20 @@
 <div class="blog-page">
-  <div class="blog-page-wrapper">
+  <div class="blog-page-wrapper page-wrapper">
     {% paginate blog.articles by 5 %}
 
+      <header class="page-header" data-aos="fade-down">
+        <div class="header-wrapper">
 
+          {% render 'breadcrumbs' %}
 
-      {% comment %} 
-        Header
-      {% endcomment %}
-      <header class="archive--header">
-        <div class="archive--header-wrapper">
-          <h2 class="title" data-aos="fade-down">
+          <h1 class="title" data-aos="fade-down">
             {{ blog.title }}
-          </h2>
+          </h1>
+
         </div>
       </header>
 
-      <div class="posts">
+      <div class="posts" data-aos="fade-down" data-aos-delay="400">
         {% for article in blog.articles %}
 
           {% assign article_has_image = false %}

@@ -1,5 +1,7 @@
 section.large-nav {
 
+    --font-size: 6.6vw;
+
     margin-top: 40px;
     background: var(--black);
     color: var(--white);
@@ -17,14 +19,32 @@ section.large-nav {
         li {
             border-bottom: 2px solid var(--white);
             padding: 30px 0 10px 0;
+
+            a {
+                font-size: var(--font-size);
+                font-weight: 300 !important;
+                text-transform: uppercase;
+                letter-spacing: -0.06em;
+            }
+
+            span.hovered-text {
+                font-size: var(--font-size);
+                opacity: 0;
+                letter-spacing: -0.8vw;
+                text-transform: uppercase;
+            }
+
         }
 
-        a {
-            font-size: 72px;
-            font-weight: 300 !important;
-            text-transform: uppercase;
-            letter-spacing: -0.06em;
+        li:hover {
+
+            span.hovered-text {
+                opacity: 0.4;
+            }
+
         }
+
+
 
         a:hover {
             opacity: 0.7;

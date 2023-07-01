@@ -1,14 +1,15 @@
+/* Wrapper */
+.page-wrapper {
+    padding: 120px var(--side-padding) 60px var(--side-padding);
+    min-height: 100svh;
+}
 
 /* Header */
-header.archive--header {
+header.page-header {
 
-    padding: 60px var(--side-padding) 40px var(--side-padding);
-
-    .archive--header-wrapper {
+    .header-wrapper {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
+        flex-direction: column;
     }
 
     .title {
@@ -16,7 +17,6 @@ header.archive--header {
         font-size: var(--section-title);
         text-transform: uppercase;
         padding-bottom: 4px;
-        border-bottom: 2px solid var(--black);
         letter-spacing: -0.2rem;
     }
 
@@ -30,3 +30,4 @@ header.archive--header {
     }
 
 }
+

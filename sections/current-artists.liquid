@@ -23,19 +23,23 @@
               {% for collection in collections %}
                 {% if collection.title == product.vendor %}
 
-                  <div class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
-                    &nbsp;
-                    
-                    <div class="view-more">
-                      <a href="{{ collection.url }}" title="{{ collection.title }}">view</a>
-                    </div>
-                  </div>
+                  {% case collection.metafields.custom.alumni_status %}
+                    {% when blank or false %}
 
-                  <div class="artist">
-                    <a href="{{ collection.url }}" title="{{ collection.title }}">
-                      {{ collection.title }}
-                    </a>
-                  </div>
+                      <div class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
+                        &nbsp;
+                        
+                        <div class="view-more">
+                          <a href="{{ collection.url }}" title="{{ collection.title }}">view</a>
+                        </div>
+                      </div>
+
+                      <div class="artist">
+                        <a href="{{ collection.url }}" title="{{ collection.title }}">
+                          {{ collection.title }}
+                        </a>
+                      </div>
+                  {% endcase %}
 
                 {% endif %}
               {% endfor %}

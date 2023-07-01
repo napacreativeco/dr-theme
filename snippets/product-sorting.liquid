@@ -1,11 +1,15 @@
 {% comment %}
-Collection sorting. Needs the JavaScript that is at the bottom of this file.
+
+  Collection sorting
+
 {% endcomment %}
 
-<details class="product-sorting">
+<details class="product-sorting sorting">
 
   <summary>
     <div class="summary-wrapper">
+
+      {% comment %} Title {% endcomment %}
       <div class="title">
         <h2>Filters</h2>
       </div>
@@ -41,8 +45,6 @@ Collection sorting. Needs the JavaScript that is at the bottom of this file.
     </div>
   </summary>
 
-
-
   <div class="wrapper">
 
     {% comment %} Filter Blocks {% endcomment %}
@@ -72,7 +74,9 @@ Collection sorting. Needs the JavaScript that is at the bottom of this file.
 
 
 {% comment %}
+
   JavaScript for collection sorting.
+
 {% endcomment %}
 <script>
     jQuery('.sort-by').on('click', function() {

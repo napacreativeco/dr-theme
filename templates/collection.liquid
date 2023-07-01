@@ -1,25 +1,17 @@
-{% comment %}
-
-  Product Archives
-  
-{% endcomment %}
-
 <div class="default-collection">
+  <div class="default-collection-wrapper page-wrapper">
 
-  {% render 'breadcrumbs' %}
-
-  <div class="row">
+    <header>
+      <div class="header-wrapper">
+        {% render 'breadcrumbs' %}
+        <h1>{{ collection.title }}</h1>
+      </div>
+    </header>
+  
     {% paginate collection.products by 10 %}
 
-      {% if collection.handle == 'dais-records' %}
-
-        {% render 'product-sorting--dais' %}
-
-      {% else %}
-
+      {% if collection.handle != 'dais-records' and collection.handle != 'collaboration' %}
         {% render 'product-sorting' %}
-        {% render 'list-tags' %}
-
       {% endif %}
 
 
@@ -32,43 +24,55 @@
 
       {% comment %} Products {% endcomment %}
       <section class="product-section">
-        <ul class="products">
-          {% for product in collection.products %}
-            <li class="item">
+        {% if collection.products.length > 0 %}
+          <ul class="products">
+            
+            {% for product in collection.products %}
+              <li class="item product-card">
+                <div class="product-card-wrapper">
+    
+                  {% comment %} Image {% endcomment %}
+                  <div class="image" onclick="window.location='{{ product.url }}';">
+                    {% if product.featured_image != blank %}
+                      <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag }}
+                    {% endif %}
+                  </div>
+                  
+                  {% comment %} Image {% endcomment %}
+                  <div class="data">
+                    <div class="l">
+                      <div class="artist">
+                        <h3>
+                          <a href="{{ collection.url }}" title="{{ product.title }} by {{ product.vendor }}">
+                            {{ product.vendor }}
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="title type-writer">
+                        <h2>
+                          <a href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
+                            {{ product.title }}
+                          </a>
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="r">
+                      <div class="price type-writer">{{ product.price | money_without_trailing_zeros }}</div>
+                    </div>
+                  </div>
 
-              <div class="image" onclick="window.location='{{ product.url }}';">
-                {% if product.featured_image != blank %}
-                  <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
-                {% else %}
-                  {{ 'image' | placeholder_svg_tag }}
-                {% endif %}
-              </div>
-              
-              <div class="data">
-                <div class="l">
-                  <div class="artist">
-                    <h3>
-                      <a href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                        {{ product.vendor }}
-                      </a>
-                    </h3>
-                  </div>
-                  <div class="title type-writer">
-                    <h2>
-                      <a href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                        {{ product.title }}
-                      </a>
-                    </h2>
-                  </div>
                 </div>
-                <div class="r">
-                  <div class="price type-writer">{{ product.price | money_without_trailing_zeros }}</div>
-                </div>
-              </div>
-              
-            </li>
-          {% endfor %}
-        </ul>
+              </li>
+            {% endfor %}
+      
+          </ul>
+        {% else %}
+
+          {% render 'no-products-available' %}
+          
+        {% endif %}
       </section>
 
 
@@ -78,5 +82,6 @@
       {% endif %}
 
     {% endpaginate %}
+
   </div>
 </div>

@@ -1,57 +1,52 @@
 {% comment %} 
   Current Artists Page
 {% endcomment %}
+<div id="artists" class="current artist-archive">
+  <div class="page-wrapper">
 
-
-<div class="artist-archive" data-page="current-artists" style="padding-top: 100px;">
-
-  {% comment %} Header {% endcomment %}
-  <header class="archive--header">
-    <div class="archive--header-wrapper">
-      <h2 class="title">{{ 'Current Artists' | escape }}</h2>
-      <a class="view-more" href="/collections/releases">View more</a>
-    </div>
-  </header>
-
-  {% comment %} Artist Loop {% endcomment %}
-  <div class="artist-archive--container">
-    <div class="artist-archive--wrapper">
-
-      <div class="list">
-        {% for product in collections.all.products %}
-
-          {% case product.type %}
-            {% when 'vinyl' %}
-
-            <div class="artist">
-              <div class="artist-wrapper">
-                {% for collection in collections %}
-                  {% if collection.title == product.vendor %}
-
-                    <div onclick="window.location='{{ collection.url }}';"
-                      class="image"
-                      style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
-                    </div>
-
-                    <div class="artist">
-                      <h3>
-                        <a href="{{ collection.url }}" title="{{ collection.title }}">
-                          {{ collection.title }}
-                        </a>
-                      </h3>
-                    </div>
-
-                  {% endif %}
-                {% endfor %}
-              </div>
-
-            </div>
-
-          {% endcase %}
-        {% endfor %}
+    {% comment %} Header {% endcomment %}
+    <header class="page-header" data-aos="fade-down">
+      <div class="header-wrapper">
+        {% render 'breadcrumbs' %}
+        <h1 class="title">{{ 'Current Artists' | escape }}</h1>
       </div>
+    </header>
 
+    {% comment %} Artist Loop {% endcomment %}
+    <div class="artists" data-aos="fade-down" data-aos-delay="400">
+      {% for product in collections.all.products %}
+
+        {% case product.type %}
+          {% when 'vinyl' %}
+
+
+              {% for collection in collections %}
+                {% if collection.title == product.vendor %}
+
+                  {% case collection.metafields.custom.alumni_status %}
+                    {% when blank or false %}
+                      <div class="artist-card">
+                        <div class="artist-card-wrapper">
+                          <div onclick="window.location='{{ collection.url }}';" class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
+                          </div>
+
+                          <div class="artist">
+                            <h3>
+                              <a href="{{ collection.url }}" title="{{ collection.title }}">
+                                {{ collection.title }}
+                              </a>
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                  {% endcase %}
+
+                {% endif %}
+              {% endfor %}
+
+        {% endcase %}
+      {% endfor %}
     </div>
-  </div>
 
+  </div>
 </div>

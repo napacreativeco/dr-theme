@@ -13,7 +13,7 @@
 
                 margin-bottom: 40px;
 
-                h1 {
+                h2 {
                     font-size: 8vw;
                     letter-spacing: -4px;
                 }
@@ -30,9 +30,10 @@
                 text-transform: uppercase;
                 font-size: 1.2rem;
                 
-                h2 {
+                h1 {
                     font-size: 3rem;
                     text-transform: uppercase;
+                    color: var(--black);
                 }
             }
 
@@ -74,6 +75,12 @@
                             transition: all 0.24s ease-in-out;
                             cursor: pointer;
                             font-size: 1.4rem;
+                            font-family: var(--type-writer);
+                            text-transform: uppercase;
+                            background: var(--white);
+                            color: var(--black);
+                            padding: 4px;
+                            border-radius: 3px;
                         }
                     }
 
@@ -122,6 +129,13 @@
                 }
 
                 .tracklisting {
+
+                    p {
+                        font-size: 1.8rem;
+                        font-family: var(--type-writer);
+                        margin: 40px 0 0 0;
+                        color: var(--grey);
+                    }
     
                     li {
                         display: list-item;
@@ -199,9 +213,9 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 100px var(--side-padding);
+                padding: 200px var(--side-padding);
                 width: 100%;
-                max-width: 450px;
+                max-width: 80%;
                 margin: 0 auto;
             }
 

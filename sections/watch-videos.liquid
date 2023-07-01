@@ -3,7 +3,7 @@
   <header class="section--header" data-aos="fade-down" data-aos-delay="200">
     <div class="section--header-wrapper">
       <h2 class="title">{{ section.settings.section_title }}</h2>
-      <a class="view-more" href="/collections/releases">View more</a>
+      <a class="view-more" href="/blogs/videos">View more</a>
     </div>
   </header>
 
@@ -11,7 +11,7 @@
     <ul>
       {% for video in blogs.videos.articles %}
         <li>
-          <div class="image" style="background: url('{{ video.image | image_url: width: 900 }}'); background-size: cover;">
+          <div class="image" onclick="window.location='{{ video.url }}';" style="background: url('{{ video.image | image_url: width: 900 }}'); background-size: cover;">
             &nbsp;
           </div>
 
@@ -39,7 +39,7 @@
 </section>
 
 <div class="videos-link">
-  <a href="#" title="Go to Videos">
+  <a href="/blogs/videos" title="Go to Videos">
     <span class="text">Go to Videos</span>
     <span class="right-dash"></span>
   </a>

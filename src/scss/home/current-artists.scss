@@ -74,7 +74,7 @@ section.current-artists {
                 .view-more {
                     position: absolute;
                     bottom: 0px;
-                    right: 20px;
+                    right: 12px;
                     opacity: 0;
                     transform: translate(-50%, -50%);
                     background: var(--white);
@@ -82,6 +82,7 @@ section.current-artists {
                     padding: 4px 8px;
                     font-size: 1.8rem;
                     transition: all 0.24s ease-in-out;
+                    font-family: var(--type-writer);
                 }
 
                 .view-more:hover {
@@ -91,7 +92,7 @@ section.current-artists {
 
             .image:hover {
                 .view-more {
-                    bottom: 20px;
+                    bottom: 12px;
                     opacity: 1;
                 }
             }

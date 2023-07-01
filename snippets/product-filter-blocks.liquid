@@ -53,48 +53,48 @@ Filter Blocks
                     {% endcomment %}
                     {%- when 'price_range' -%}
 
-                    <div class="price-range">
+                        <div class="price-range">
 
-                        {% comment %} From {% endcomment %}
-                        <div class="filter-group-display__price-range-from">
-                            <span>{{ cart.currency.symbol }}</span>
+                            {% comment %} From {% endcomment %}
+                            <div class="filter-group-display__price-range-from">
+                                <span>{{ cart.currency.symbol }}</span>
 
-                            <input name="{{ filter.min_value.param_name }}"
-                                id="Filter-{{ filter.min_value.param_name }}"
-                                {% if filter.min_value.value -%}
-                                    value="{{ filter.min_value.value | money_without_trailing_zeros | replace: ',', '' }}"
-                                {%- endif %}
-                                type="number"
-                                placeholder="0.0"
-                                min="0"
-                                max="{{ filter.range_max | money_without_trailing_zeros | replace: ',', '' }}">
-                            <label for="Filter-{{ filter.min_value.param_name }}">
-                                {{ 'Min.' | escape }}</label>
+                                <input name="{{ filter.min_value.param_name }}"
+                                    id="Filter-{{ filter.min_value.param_name }}"
+                                    {% if filter.min_value.value -%}
+                                        value="{{ filter.min_value.value | money_without_trailing_zeros | replace: ',', '' }}"
+                                    {%- endif %}
+                                    type="number"
+                                    placeholder="0.0"
+                                    min="0"
+                                    max="{{ filter.range_max | money_without_trailing_zeros | replace: ',', '' }}">
+                                <label for="Filter-{{ filter.min_value.param_name }}">
+                                    {{ 'Min.' | escape }}</label>
+                            </div>
+
+                            {% comment %} To {% endcomment %}
+                            <div class="filter-group-display__price-range-to">
+                                <span>{{ cart.currency.symbol }}</span>
+
+                                <input name="{{ filter.max_value.param_name }}"
+                                    id="Filter-{{ filter.max_value.param_name }}"
+                                    {% if filter.max_value.value -%}
+                                        value="{{ filter.max_value.value | money_without_trailing_zeros | replace: ',', '' }}"
+                                    {%- endif %}
+                                    type="number"
+                                    placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                    min="0"
+                                    max="{{ filter.range_max | money_without_trailing_zeros | replace: ',', '' }}">
+
+                                <label for="Filter-{{ filter.max_value.param_name }}">
+                                    {{ 'Max' | escape }}</label>
+                            </div>
+                            
                         </div>
 
-                        {% comment %} To {% endcomment %}
-                        <div class="filter-group-display__price-range-to">
-                            <span>{{ cart.currency.symbol }}</span>
-
-                            <input name="{{ filter.max_value.param_name }}"
-                                id="Filter-{{ filter.max_value.param_name }}"
-                                {% if filter.max_value.value -%}
-                                    value="{{ filter.max_value.value | money_without_trailing_zeros | replace: ',', '' }}"
-                                {%- endif %}
-                                type="number"
-                                placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                                min="0"
-                                max="{{ filter.range_max | money_without_trailing_zeros | replace: ',', '' }}">
-
-                            <label for="Filter-{{ filter.max_value.param_name }}">
-                                {{ 'Max' | escape }}</label>
+                        <div class="filter-group-display__submit">
+                            <input type="submit" value="Apply">
                         </div>
-                        
-                    </div>
-
-                    <div class="filter-group-display__submit">
-                        <input type="submit" value="Apply">
-                    </div>
 
                 
                 {%- endcase -%}

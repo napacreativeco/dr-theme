@@ -1,12 +1,11 @@
 {% comment %}
 Collection sorting. Needs the JavaScript that is at the bottom of this file.
 {% endcomment %}
-<div class="product-sorting">
+<div class="single-collection-sorting sorting">
   <div class="wrapper">
 
     {% comment %} Price Filter {% endcomment %}
-    <div class="left">
-      <h3>Sort</h3>
+    <h3>Sort</h3>
 
     {% if collection.products_count == 1 %}
         <fieldset>
@@ -63,14 +62,6 @@ Collection sorting. Needs the JavaScript that is at the bottom of this file.
             </label>
         </fieldset>
     {% endif %}
-
-    </div>
-
-    {% comment %} Filter Blocks {% endcomment %}
-    <div class="center">
-      <h3>Filter</h3>
-      {% render 'product-filter-blocks' %}
-    </div>
 
   </div>
 </div>
