@@ -104,6 +104,8 @@
 
 @media screen and (max-width: 767px) {
     .single-artist {
+
+        padding: 0px var(--side-padding) 40px var(--side-padding);
         .single-artist--wrapper {
             padding: 0px 0 0 0;
             display: flex;

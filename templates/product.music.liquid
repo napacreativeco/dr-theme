@@ -15,11 +15,6 @@
     <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
     
     <form action="/cart/add" method="post" enctype="multipart/form-data">
-      
-      {% comment %}
-      Cart Messages 
-      {% endcomment %}
-      <div data-ajax-cart-messages="form"></div>
 
       {% comment %}
       HEADER 
@@ -168,6 +163,12 @@
         </details>
 
       </section>
+
+            
+      {% comment %}
+      Cart Messages 
+      {% endcomment %}
+      <div data-ajax-cart-messages="form"></div>
 
       {% comment %} 
       Purchase Options
