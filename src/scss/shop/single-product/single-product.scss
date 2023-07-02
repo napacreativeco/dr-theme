@@ -5,8 +5,10 @@
     
     .wrapper {
 
+        padding: 0;
+
         // Main
-        section#product-main {
+        .section-one {
             width: 100%;
             max-width: 100%;
             padding: 0 var(--side-padding);
@@ -93,7 +95,7 @@
         }
 
         // Accordions
-        section#product-accordions {
+        .section-two {
             padding: 80px var(--side-padding);
         }
 
@@ -278,13 +280,13 @@
 @media screen and (max-width: 767px) {
     .single-product {
 
-        padding: 0;
+        padding: 100px 0 0 0;
 
         .wrapper {
 
             // Header
             header {
-                padding: 80px var(--side-padding) 20px var(--side-padding);
+                padding: 0px var(--side-padding) 20px var(--side-padding);
 
                 .data {
                     font-size: 1.4rem;
@@ -301,7 +303,7 @@
             }
 
             // Main
-            section#product-main {
+            .section-one {
 
                 padding: 0 var(--side-padding); 
 
@@ -316,26 +318,26 @@
 
                 .left {
                     width: 100%;
+
+                    .gallery-swiper {
+                        .gallery-pagination {
+                            padding: 20px var(--side-padding) 0 var(--side-padding);
+                        }
+                    }
+
                 }
 
                 .right {
                     width: 100%;
-                    padding: 40px 0;
+                    padding: 40px var(--side-padding);
 
-                    .tracklisting {
-                        margin-top: 0px;
-                    }
-    
-                    .bandcamp {
-                        margin: 0;
-                    }
                 }
 
 
             }
 
             // Accordions
-            section#product-accordions {
+            .section-two {
                 padding: 10px var(--side-padding) 60px var(--side-padding);
 
                 summary {

@@ -31,3 +31,16 @@
 
 }
 
+@media screen and (max-width: 767px) {
+    
+    .artist-archive {
+
+        .artists {
+            display: flex;
+            flex-direction: column;
+        }
+        
+    }
+
+}
+

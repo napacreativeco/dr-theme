@@ -138,7 +138,7 @@
 @media screen and (max-width: 767px) {
     .single-artist {
 
-        padding: 0px var(--side-padding) 40px var(--side-padding);
+        padding: 0px;
         
         .single-artist--wrapper {
             padding: 0px 0 0 0;
@@ -146,6 +146,21 @@
             flex-direction: column;
             grid-gap: var(--side-padding);
             
+
+            .right {
+                padding: 20px 10px;
+
+                .products {
+                    ul.artist-products {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: grid;
+                        grid-template-columns: repeat(2, 50%);
+                    }
+                }
+            }
+
         }
     }
 }

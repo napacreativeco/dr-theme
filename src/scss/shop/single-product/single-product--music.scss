@@ -2,7 +2,6 @@
 
     // Header
     header {
-        padding: 0 var(--side-padding) 40px var(--side-padding);
 
         .band-name {
             margin-bottom: 40px;
@@ -66,35 +65,38 @@
 
         // Header
         header {
-            padding: 0 var(--side-padding) 40px var(--side-padding);
     
             .band-name {
-                margin-bottom: 40px;
+                margin-bottom: 20px;
     
                 h2 {
-                    font-size: 8vw;
+                    font-size: 11vw;
                     letter-spacing: -4px;
                 }
             }
     
             .data {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: flex-start;
-                align-items: flex-end;
-                gap: 40px;
+                align-items: flex-start;
+                gap: 4px;
                 color: var(--grey);
                 font-family: var(--type-writer);
                 text-transform: uppercase;
                 font-size: 1.2rem;
                 
                 h1 {
-                    font-size: 3rem;
+                    font-size: 2rem;
                     text-transform: uppercase;
                     color: var(--black);
                 }
             }
     
+        }
+
+        .section-one {
+            padding: 0;
         }
     
         .bandcamp {
