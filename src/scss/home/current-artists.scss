@@ -124,14 +124,15 @@ section.current-artists {
 @media screen and (max-width: 767px) {
     
     section.current-artists {
+        .current-artists--wrapper {
+            li {
+                .image {
+                    overflow: hidden;
+                    aspect-ratio: 1/1;
+                    width: 280px;
+                }
 
-        li {
-            .image {
-                overflow: hidden;
-                aspect-ratio: 1/1;
-                width: 280px;
             }
-
         }
     }
 
