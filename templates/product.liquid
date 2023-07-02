@@ -1,130 +1,246 @@
+{% comment %}
+
+  Single Product Page
+
+{% endcomment %}
+
 {% assign add_to_cart = 'Add to cart' %}
 {% assign sold_out = 'Sold Out' %}
 {% assign unavailable = 'Unavailable' %}
 
-<div itemscope itemtype="http://schema.org/Product">
-  
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
-  <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
-  
-  <form action="/cart/add" method="post" enctype="multipart/form-data">
-    
-    {% if product.images.size == 0 %}
-  
-      <img src="{{ '' | img_url: 'grande' }}" alt="" />
-    
-    {% else %}
-    
-      {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-      <a href="{{ featured_image | img_url: '1024x1024' }}">
-        <img src="{{ featured_image | img_url: 'grande' }}" alt="{{ product.title | escape }}" />
-      </a>
+<div class="single-product default">
+  <div class="wrapper">
 
-      {% if product.images.size > 1 %}
-        <ul>
-          {% for image in product.images %}
-            <li>
-              <a href="{{ image | img_url: '1024x1024' }}">
-                <img src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}" />
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
+    <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
     
-    {% endif %}
-    
-      <h1>{{ product.title }}</h1>
-      
-      {% assign product_vendor_handle = product.vendor | handle %}
-      {% comment %}
-      Do we have a collection that has the same name as our product vendor name?
-      If we do, let's have the vendor link point to it.
-      If not, we will point to the automatic vendor collection.
-      {% endcomment %}
-      {% if collections[product_vendor_handle].handle == product_vendor_handle %}
-        {% assign vendor_url = collections[product_vendor_handle].url %}
-      {% else %}
-        {% assign vendor_url = product.vendor | url_for_vendor %}
-      {% endif %}
-      <h2 itemprop="brand">{{ product.vendor | link_to: vendor_url }}</h2>
-      
-      <div itemprop="description">
-        {{ product.description }}
-      </div>
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
       
       {% comment %}
-        All themes by Shopify should support the Product Reviews app out of the box.
-        https://apps.shopify.com/product-reviews
+      Cart Messages 
       {% endcomment %}
-      <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
-      
-      <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
-        {% if product.available %}
-        <link itemprop="availability" href="http://schema.org/InStock" />
-        {% else %}
-        <link itemprop="availability" href="http://schema.org/OutOfStock" />
-        {% endif %}
-        <p>
-          {% assign variant = product.selected_or_first_available_variant %}
-          {% if product.compare_at_price > product.price %}
-          <span class="product-price on-sale" itemprop="price">{{ variant.price | money }}</span>
-          <s class="product-compare-price">{{ variant.compare_at_price | money }}</s>
-          {% else %}
-          <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
-          {% endif %}
-        </p>
-      </div>
-      
-      {% assign hide_default_title = false %}
-      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-        {% assign hide_default_title = true %}
-      {% endif %}       
+      <div data-ajax-cart-messages="form"></div>
 
-      <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
-        <select id="product-select" name="id">
-        {% for variant in product.variants %}
-          <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money }}
-          </option>
-        {% endfor %}
-        </select>
-      </div>        
-             
-      <div id="backorder" class="hidden">
-        <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>
-      </div>
-        
-      <div id="product-add">
-        <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
-      </div>
-      
-      {% if collection %}
-        {% if collection.previous_product or collection.next_product %}
-        <div>     
-        {% if collection.previous_product %}
-          {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
-          <span class="left">{{ 'Previous Product' | link_to: prev_url }}</span>
-        {% endif %}
-        {% if collection.next_product %}
-          {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-          <span class="right">{{ 'Next Product' | link_to: next_url }}</span>
-        {% endif %}
+      {% comment %} 
+      Product Main
+      {% endcomment %}
+      <section class="section-one" id="product-main">
+        <div class="section-wrapper">
+
+          {% comment %} Left {% endcomment %}
+          <div class="left">
+
+            <div class="gallery-swiper swiper">
+              <div class="swiper-wrapper">
+              
+                {% for image in product.media %}
+                  <div class="swiper-slide">
+                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">
+                      <span class="">View larger</span>
+                    </div>
+                    <img src="{{ image | image_url: width: 450 }}" alt="{{ product.title }} by {{ product.vendor }}" />
+
+                  </div>
+                {% endfor %}
+              
+              </div>
+              <div class="gallery-pagination"></div>
+            </div>
+
+          </div>
+
+          {% comment %} Right {% endcomment %}
+          <div class="right">
+            <div class="band-name">
+              <h2>{{ product.vendor }}</h2>
+            </div>
+            <div class="product-title">
+              <h1>{{ product.title }}</h1>
+            </div>
+            <div class="product-type">
+              <span>{{ product.type }}</span>
+            </div>
+
+            <div class="description">
+              <p>{{ product.description }}</p>
+            </div>
+          </div>
+
         </div>
-        {% endif %}
-      {% endif %}
+      </section>
 
-  </form>
+      {% comment %} 
+      Accordions
+      {% endcomment %}
+      <section id="product-accordions" class="section-two">
 
+        {% comment %} Shipping &amp; Returns {% endcomment %}
+        <details class="shipping-info accordion">
+          <summary>
+            <span>{{ 'Shipping & Return Policy' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>shipping and return info here</p>
+          </div>
+        </details>
+
+        {% comment %} Care Instructions {% endcomment %}
+        <details class="care-instructions accordion">
+          <summary> 
+            <span>{{ 'Care Instructions' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>care instructions here</p>
+          </div>
+        </details>
+
+      </section>
+
+      {% comment %} 
+      Purchase Options
+      {% endcomment %}
+      <section id="purchase-options" class="section-three">
+        <div class="wrapper">
+
+          <div data-ajax-cart-messages="{{ item.key }}"></div>
+
+          {% comment %} HEADER {% endcomment %}
+          <div class="header">
+
+            <div class="title">
+              <h3>Ordering</h3>
+            </div>
+
+            <div class="price">
+              {% assign found_available_variant = false %}
+              {% assign variant = product.selected_or_first_available_variant %}
+              <span class="price-read">{{ variant.price | money_without_trailing_zeros }}</span>
+            </div>
+
+          </div>
+
+          {% comment %} Variants {% endcomment %}
+          <div class="actions">
+            <div id="product-variants" class="variants {% if hide_default_title %} hidden{% endif %}">
+
+              {% assign hide_default_title = false %}
+              {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+                {% assign hide_default_title = true %}
+              {% endif %}     
+
+              {% if product.variants.size > 1 %} 
+
+                <script type="text/javascript" charset="utf-8">
+                  jQuery(function() { 
+                    var first_variant_price = jQuery("ul li input[type='radio']:checked").attr("data-price");
+                    var first_variant_compare_at_price = jQuery("ul li input[type='radio']:checked").attr("data-compare-at-price") || ''; 
+
+                    jQuery(".price-field span").html(first_variant_price);
+
+                    jQuery(".price-field del").html(first_variant_compare_at_price);
+
+                    jQuery("input[type='radio']").click(function() {
+
+                      var variant_price = jQuery(this).attr("data-price");
+                      jQuery(".price-field span").html(variant_price);
+                      
+                      var variant_compare_at_price = jQuery(this).attr("data-compare-at-price") || '';
+                      jQuery(".price-field del").html(variant_compare_at_price);
+
+                      jQuery('.price-read').html(variant_price);
+
+                    });
+
+                  });
+                </script>
+
+                <ul class="variants-list">
+                  {% assign found_available_variant = false %}
+                  {% for variant in product.variants %}
+                    <li class="switch-field">
+                        {% if variant.available %}
+                            <label for="{{ variant.id }}">
+                              <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_with_currency }}"{% endif %} data-price="{{ variant.price | money_with_currency }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false  %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
+                              <span class="variant-name">{{ variant.title }}</span>
+                            </label>
+                        {% else %}
+                            <label for="{{ variant.id }}" class="out-of-stock">
+                              <input type="radio" class="out-of-stock" id="{{ variant.id }}" value="{{ variant.id }}" name="id" /> 
+                              <span class="variant-name">{{ variant.title }}</span>
+                            </label>
+                        {% endif %}
+                      </li>
+                  {% endfor %}
+                </ul>
+
+              {% else %}
+            
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            
+              {% endif %}
+
+            </div>
+          </div>
+
+          {% comment %} Add to cart {% endcomment %}
+          <div id="product-add">
+            {% assign variant = product.selected_or_first_available_variant %}
+            <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
+          </div>
+          
+          {% comment %} BACK TO SHOP {% endcomment %}
+          <a href="{{ shop.url }}" title="{{ 'Back to Shop' | escape }}" class="back-to-shop">
+            {{ 'Back to shop' | escape }}
+          </a>
+
+        </div>
+      </section>
+      
+    </form>
+
+  </div>
 </div>
 
-
-
-{% comment %}
-  Adding support for product options. See here for details:  
-  http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options
+{% comment %} 
+Image Overlay
 {% endcomment %}
+<div class="image-overlay">
+  <div class="wrapper">
+
+    <span class="image-overlay--closer">&times;</span>
+
+    <img src="" alt="" class="image-overlay--img" />
+  </div>
+</div>
+
+{% comment %} 
+Image Overlay Script
+{% endcomment %}
+<script>
+  (function($) {
+    
+      $('.view-larger').on('click', function() {
+        var img = $(this).attr('data-image');
+
+        $('.image-overlay').css({
+          display: 'block'
+        });
+
+        $('.image-overlay--img').attr('src', img);
+
+        
+        $('.image-overlay--closer').on('click', function() {
+          $('.image-overlay').css('display', 'none');
+        });
+
+      });
+
+  })(jQuery);
+</script>
 
 <script>
   

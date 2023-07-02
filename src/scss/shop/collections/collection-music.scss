@@ -35,3 +35,37 @@
 
     }
 }
+
+
+/*
+---------------------------------------------------------------------------------
+*/
+@media screen and (max-width: 767px) {
+    
+    .music-collection {
+        padding: 0;
+
+        .music-collection-wrapper {
+
+            padding: 0 var(--side-padding) 40px var(--side-padding);
+
+            header {
+                margin: 0 0 20px 0;
+            }
+
+            .product-section {
+
+                padding: 20px 0;
+
+                ul.products {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+                }
+    
+            }
+
+        }
+
+    }
+}

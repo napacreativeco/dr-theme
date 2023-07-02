@@ -9,6 +9,11 @@ header.header-with-link {
             font-size: 8vw;
             letter-spacing: -0.4vw;
         }
+
+        a {
+            font-family: var(--type-writer);
+            text-transform: uppercase;
+        }
         
     }   
 

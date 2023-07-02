@@ -31,12 +31,23 @@
 
 }
 
+
+/*
+---------------------------------------------------------------------------------
+*/
 @media screen and (max-width: 767px) {
     
     .default-collection {
-        padding: 40px 0 0 0;
+        padding: 0;
 
+        header {
+            margin: 0 0 20px 0;
+        }
+        
         .product-section {
+
+            padding: 20px 0;
+
             ul.products {
                 display: flex;
                 flex-direction: column;
