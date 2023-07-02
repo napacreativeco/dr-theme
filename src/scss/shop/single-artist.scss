@@ -7,20 +7,59 @@
 
 .single-artist {
 
-    padding: 40px var(--side-padding);
+    //padding: 40px var(--side-padding);
     width: 100%;
 
     .single-artist--wrapper {
 
-        padding: 120px 0 0 0;
+        padding: 0;
         display: grid;
         grid-template-columns: 54% auto;
-        grid-gap: var(--side-padding);
+        grid-gap: 40px;
 
+        // Left
+        .left {
+            // height: 100dvh;
+            // overflow-y: scroll;
+            img {
+                width: 100%;
+            }
+        }
 
-        // Header
-        .artist-header {
-            padding: 0 0 40px 0;
+        // /* width */
+        // .left::-webkit-scrollbar {
+        //     width: 10px;
+        // }
+        
+        // /* Track */
+        // .left::-webkit-scrollbar-track {
+        //     background: #f1f1f1;
+        // }
+        
+        // /* Handle */
+        // .left::-webkit-scrollbar-thumb {
+        //     background: var(--black);
+        // }
+        
+        // /* Handle on hover */
+        // .left::-webkit-scrollbar-thumb:hover {
+        //     background: #555;
+        // }
+
+        // Right
+        .right {
+
+            padding: 120px 20px 0 0;
+
+            .status {
+                margin: 0 0 10px 0;
+
+                a {
+                    background: var(--grey-light);
+                    padding: 4px;
+                    border-radius: 4px;
+                }
+            }
 
             .title {
                 h1 {
@@ -28,28 +67,18 @@
                     letter-spacing: -0.4rem;
                 }
             }
-        }
 
-        .description {
-            line-height: 1.4;
-            p {
-                font-size: 1.62rem;
-                margin: 0 0 20px 0;
+            .description {
+                line-height: 1.4;
+                font-family: var(--type-writer);
+                p {
+                    font-size: 1.2rem;
+                    margin: 0 0 20px 0;
+                }
             }
-        }
-
-        // Left
-        .left{
-            img {
-                width: 100%;
-            }
-        }
-
-
-        // Right
-        .right {
 
             .products {
+                margin: 40px 0 0 0;
 
                 .title h3 {
                     font-size: 2.4rem;
@@ -59,39 +88,43 @@
                     border-bottom: var(--border-blk);
                 }
 
-            }
-
-            ul.artist-products {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                display: grid;
-                grid-template-columns: repeat(2, 50%);
-                width: 100%;
-                transition: var(--quick-transition);
+                ul.artist-products {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: grid;
+                    grid-template-columns: repeat(4, 25%);
+                    grid-gap: 10px;
+                    width: 100%;
+                    transition: var(--quick-transition);
+        
     
-
-                .item {
-                    .title {
-                        font-size: 2rem;
-                    }
-
-                    .title:hover {
-                        text-decoration: underline;
-                    }
-
-                    img {
-                        width: 100%;
-                        margin-bottom: 12px;
+                    .item {
+                        .title {
+                            font-size: 1.1rem;
+                            font-family: var(--type-writer);
+                        }
+    
+                        .title:hover {
+                            text-decoration: underline;
+                        }
+    
+                        img {
+                            width: 100%;
+                            margin-bottom: 12px;
+                        }
+        
+                        img:hover {
+                            opacity: 0.6;
+                        }
                     }
     
-                    img:hover {
-                        opacity: 0.6;
-                    }
+    
                 }
 
-
             }
+
+
 
         }
 

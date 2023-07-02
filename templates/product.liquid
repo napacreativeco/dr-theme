@@ -15,16 +15,16 @@
     <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
     
     <form action="/cart/add" method="post" enctype="multipart/form-data">
-      
-      {% comment %}
-      Cart Messages 
-      {% endcomment %}
-      <div data-ajax-cart-messages="form"></div>
+
+
 
       {% comment %} 
       Product Main
       {% endcomment %}
       <section class="section-one" id="product-main">
+
+      {% render 'breadcrumbs' %}
+      
         <div class="section-wrapper">
 
           {% comment %} Left {% endcomment %}
@@ -38,7 +38,7 @@
                     <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">
                       <span class="">View larger</span>
                     </div>
-                    <img src="{{ image | image_url: width: 450 }}" alt="{{ product.title }} by {{ product.vendor }}" />
+                    <img src="{{ image | image_url: width: 950 }}" alt="{{ product.title }} by {{ product.vendor }}" />
 
                   </div>
                 {% endfor %}
@@ -99,6 +99,11 @@
         </details>
 
       </section>
+
+      {% comment %}
+      Cart Messages 
+      {% endcomment %}
+      <div data-ajax-cart-messages="form"></div>
 
       {% comment %} 
       Purchase Options

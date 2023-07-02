@@ -1,5 +1,5 @@
 .single-product {
-    padding: 160px 0 0px 0;
+    padding: 120px 0 0px 0;
 
     #player { max-width: 100% !important; }
     
@@ -92,6 +92,10 @@
 
         }
 
+        // Accordions
+        section#product-accordions {
+            padding: 80px var(--side-padding);
+        }
 
         details summary > * { 
             display: inline;
@@ -137,15 +141,7 @@
         summary:hover .indicator {
             background: var(--black);
         }
-
-
-        // Accordions
-        section#product-accordions {
-
-            padding: 80px var(--side-padding);
-
-            
-        }
+        
 
         // Purchase Options
         section#purchase-options {
