@@ -3,6 +3,17 @@
     "hero-slideshow": {
       "type": "hero-slideshow",
       "blocks": {
+        "4564b56c-d57f-47b7-a4b9-9945becbf229": {
+          "type": "slide",
+          "settings": {
+            "preorder": false,
+            "image": "shopify:\/\/shop_images\/Drab-Majesty-2023-1500x_480x480_43c1160a-a5d7-4480-9dd4-43cfcae6596e.webp",
+            "title": "Drab Majesty",
+            "subtitle": "An Object in Motion",
+            "link-destination": "",
+            "link-text": "Preorder"
+          }
+        },
         "8a73aba1-4b2e-4f8f-9f46-fa52a0c35ea2": {
           "type": "slide",
           "settings": {
@@ -13,21 +24,11 @@
             "link-destination": "",
             "link-text": "View"
           }
-        },
-        "4564b56c-d57f-47b7-a4b9-9945becbf229": {
-          "type": "slide",
-          "settings": {
-            "preorder": false,
-            "title": "Test two",
-            "subtitle": "",
-            "link-destination": "",
-            "link-text": ""
-          }
         }
       },
       "block_order": [
-        "8a73aba1-4b2e-4f8f-9f46-fa52a0c35ea2",
-        "4564b56c-d57f-47b7-a4b9-9945becbf229"
+        "4564b56c-d57f-47b7-a4b9-9945becbf229",
+        "8a73aba1-4b2e-4f8f-9f46-fa52a0c35ea2"
       ],
       "settings": {
       }
@@ -94,7 +95,7 @@
           "type": "text",
           "settings": {
             "featured_product": [
-              "high-vis-blending"
+              "all-that-you-do-is-ask-t-shirt"
             ]
           }
         },
