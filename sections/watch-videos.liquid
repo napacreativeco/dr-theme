@@ -21,9 +21,9 @@
                 <h3>{{ video.title }}</h3>
               </a>
             </div>
-            <div class="artist">
+            <div class="metadata">
               <a href="{{ video.url }}" title="{{ video.title }} by {{ video.tags }}">
-                <h4>{{ video.tags }}</h4>
+                <h4>{{ 'By ' | escape }} {{ video.tags }} {{ '|' | escape }} {{ video.metafields.videos.premiere_date.value | date: "%b %d, %y" }}</h4>
               </a>
             </div>
           </div>

@@ -21,19 +21,22 @@
       {% endcomment %}
       <header class="artist-header">
 
-        <div class="band-name">
-          <h2>{{ product.vendor }}</h2>
+        <div class="product-title">
+          <h1>{{ '"' | escape }}{{ product.title }}{{ '"' | escape }}</h1>
         </div>
 
         <div class="data">
-          <div class="product-title">
-            <h1>{{ product.title }}</h1>
+          <div class="band-name">
+            <h2>{{ product.vendor }}</h2>
           </div>
           <div class="product-type">
             <span>{{ product.type }}</span>
           </div>
           <div class="product-release">
-            <span>{{ product.published_at | date: '%B %d, %Y' }}</span>
+            <span>{{ product.metafields.music.release_date.value | date: "%b %d, %y" }}</span>
+          </div>
+          <div class="catalog-number">
+            <span>{{ product.metafields.music.catalog_number.value | escape }}</span>
           </div>
         </div>
 
@@ -53,8 +56,8 @@
               
                 {% for image in product.media %}
                   <div class="swiper-slide">
-                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">
-                      <span class="">View larger</span>
+                    <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">   
+                      {% render 'icon--view-more' %}
                     </div>
                     <img src="{{ image | image_url: width: 950 }}" alt="{{ product.title }} by {{ product.vendor }}" />
 
@@ -121,51 +124,7 @@
         </div>
       </section>
 
-      {% comment %} 
-      Accordions
-      {% endcomment %}
-      <section id="product-accordions" class="section-two">
-
-        {% comment %} Description{% endcomment %}
-        <details class="description accordion">
-          <summary>
-            <span>{{ 'Description' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>{{ product.description }}</p>
-          </div>
-        </details>
-
-        {% comment %} Shipping &amp; Returns {% endcomment %}
-        <details class="shipping-info accordion">
-          <summary>
-            <span>{{ 'Shipping & Return Policy' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>shipping and return info here</p>
-          </div>
-        </details>
-
-        {% comment %} Care Instructions {% endcomment %}
-        <details class="care-instructions accordion">
-          <summary> 
-            <span>{{ 'Care Instructions' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>care instructions here</p>
-          </div>
-        </details>
-
-      </section>
-
-            
-      {% comment %}
+            {% comment %}
       Cart Messages 
       {% endcomment %}
       <div data-ajax-cart-messages="form"></div>
@@ -234,7 +193,7 @@
                     <li class="switch-field">
                         {% if variant.available %}
                             <label for="{{ variant.id }}">
-                              <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_with_currency }}"{% endif %} data-price="{{ variant.price | money_with_currency }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false  %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
+                              <input type="radio"{% if variant.compare_at_price > variant.price %} data-compare-at-price="{{ variant.compare_at_price | money_without_trailing_zeros }}"{% endif %} data-price="{{ variant.price | money_without_trailing_zeros }}" id="{{ variant.id }}" value="{{ variant.id }}" name="id"{% if found_available_variant == false  %}{% assign found_available_variant = true %} checked="checked"{% endif %} />
                               <span class="variant-name">{{ variant.title }}</span>
                             </label>
                         {% else %}
@@ -261,15 +220,62 @@
             {% assign variant = product.selected_or_first_available_variant %}
             <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
           </div>
+
+        </div>
+      </section>
+
+      {% comment %} 
+      Accordions
+      {% endcomment %}
+      <section id="product-accordions" class="section-two">
+
+        {% comment %} Description{% endcomment %}
+        <details class="description accordion">
+          <summary>
+            <span>{{ 'Description' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
           
+          <div class="details-body">
+            <p>{{ product.description }}</p>
+          </div>
+        </details>
+
+        {% comment %} Shipping &amp; Returns {% endcomment %}
+        <details class="shipping-info accordion">
+          <summary>
+            <span>{{ 'Shipping & Return Policy' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>shipping and return info here</p>
+          </div>
+        </details>
+
+        {% comment %} Care Instructions {% endcomment %}
+        <details class="care-instructions accordion">
+          <summary> 
+            <span>{{ 'Care Instructions' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>care instructions here</p>
+          </div>
+        </details>
+
+      </section>
+
+      {% comment %} BACK TO SHOP {% endcomment %}
+      <section class="back-to-shop-section">
           {% comment %} BACK TO SHOP {% endcomment %}
           <a href="{{ shop.url }}" title="{{ 'Back to Shop' | escape }}" class="back-to-shop">
             {{ 'Back to shop' | escape }}
           </a>
-
-        </div>
       </section>
-      
+
+
     </form>
 
   </div>

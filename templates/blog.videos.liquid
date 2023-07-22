@@ -55,9 +55,9 @@
                 <h2>
                   <a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a>
                 </h2>
-                <div class="artist">
-                  <a href="{{ article.url }}" title="{{ article.title }} by {{ article.tags }}">
-                    <h4>{{ article.tags }}</h4>
+                <div class="metadata">
+                  <a href="{{ video.url }}" title="{{ video.title }} by {{ video.tags }}">
+                    <h4>{{ 'By ' | escape }} {{ article.tags }} {{ '|' | escape }} {{ article.metafields.videos.premiere_date.value | date: "%b %d, %y" }}</h4>
                   </a>
                 </div>
               </div>
@@ -65,7 +65,9 @@
 
               {% comment %} Link {% endcomment %}
               <div class="read-more">
-                <a href="{{ article.url }}" title="{{ article.title }}">Read more</a>
+                <a href="{{ article.url }}" title="{{ article.title }}">
+                  {{ 'Watch' | escape }}
+                </a>
               </div>
 
             </div>

@@ -1,5 +1,11 @@
 .cart-page {
 
+    header {
+        a.view-more {
+            font-size: 2rem;
+            text-decoration: underline;
+        }
+    }
     .cart-holder {
         padding: 60px 0 40px 0;
 

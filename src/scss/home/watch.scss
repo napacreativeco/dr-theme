@@ -32,21 +32,23 @@
             }
         }
 
-        .artist h4 {
-            color: var(--grey-light);
-            font-size: 16px;
-        }
-
-        .title h3 {
-            padding-bottom: 6px;
-            font-size: 20px;
-            color: var(--white);
-        } 
-
-
         .info {
             padding: 20px;
         }
+
+        .title h3 {
+            padding-bottom: 8px;
+            font-size: 1.8rem;
+            color: var(--white);
+        } 
+
+        .metadata {
+            font-size: 1.3rem;
+            font-family: var(--type-writer);
+            color: var(--grey-light);
+            text-transform: uppercase;
+        }
+
     }
 
 

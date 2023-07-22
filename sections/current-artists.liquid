@@ -29,8 +29,14 @@
                       <div class="image" style="background: url('{{ collection.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">
                         &nbsp;
                         
+                        <div class="artist-data">
+                          <span>Products {{ '(' | escape }}{{ collection.products_count }}{{ ')' | escape }}</span>
+                          <span>Images {{ '(' | escape }}{{ collection.metafields.dais.artist_gallery.value.count }}{{ ')' | escape }}</span>
+                        </div>
                         <div class="view-more">
-                          <a href="{{ collection.url }}" title="{{ collection.title }}">view</a>
+                          <a href="{{ collection.url }}" title="{{ collection.title }}">
+                            {% render 'icon--view-more' %}
+                          </a>
                         </div>
                       </div>
 

@@ -1,10 +1,7 @@
 section.current-artists {
 
-    padding-bottom: 20px;
-
     /* Header */
     header.current-artists--header {
-
         padding: 60px var(--side-padding) 40px var(--side-padding);
 
         .current-artists--header-wrapper {
@@ -29,7 +26,7 @@ section.current-artists {
         overflow: hidden;
         width: 100%;
         max-width: 100%;
-        padding: 0 var(--side-padding) 40px var(--side-padding);
+        padding: 0 var(--side-padding) 0px var(--side-padding);
 
         ul.current-artists--list {
             display: flex;
@@ -43,16 +40,16 @@ section.current-artists {
         }
         // Scrollbar
         ul.current-artists--list::-webkit-scrollbar {
-            width: 1em;
+            width: 0px;
         }
          
         ul.current-artists--list::-webkit-scrollbar-track {
             //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            border-bottom: var(--border-blk);
+            // border-bottom: var(--border-blk);
         }
          
         ul.current-artists--list::-webkit-scrollbar-thumb {
-          background-color: var(--black);
+          background-color: transparent;
           outline: 0px;
         }
 
@@ -65,16 +62,34 @@ section.current-artists {
             .image {
                 overflow: hidden;
                 aspect-ratio: 1/1;
-                width: 350px;
+                // width: 350px;
+                width: calc(100vw / 5);
                 margin-bottom: 10px;
                 transition: opacity 0.5 ease-out;
                 transition-delay: 200ms;
                 position: relative;
 
+                .artist-data {
+                    font-family: var(--type-writer);
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    text-align: right;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    padding: 10px;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    span {
+                        display: block;
+                    }
+                }
+
                 .view-more {
                     position: absolute;
                     bottom: 0px;
-                    right: 12px;
+                    right: 0px;
                     opacity: 0;
                     transform: translate(-50%, -50%);
                     background: var(--white);
@@ -91,6 +106,9 @@ section.current-artists {
             }
 
             .image:hover {
+                .artist-data {
+                    opacity: 1;
+                }
                 .view-more {
                     bottom: 12px;
                     opacity: 1;

@@ -30,6 +30,8 @@ section.featured-products {
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 12px;
         padding: 0 var(--side-padding);
+        width: 100%;
+        
 
         .featured-product {
             display: flex;
@@ -45,8 +47,7 @@ section.featured-products {
                     width: 100%;
                     max-width: 250px;
                     height: auto;
-                    transition: all 0.2s 'easeInOutQuint';
-                    transition-delay: 200;
+                    transition: all 0.34s ease-in-out;
                 }
 
                 svg {
@@ -58,16 +59,15 @@ section.featured-products {
 
             }
 
-            
             .image:hover img {
-                transform: scale(1.01);
+                opacity: 0.6;
             }
 
             .info {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                gap: 3px;
+                gap: 10px;
                 height: 100%;
                 background: var(--bright-white);
                 padding: 24px 18px;
@@ -75,11 +75,11 @@ section.featured-products {
             }
 
             .title h5 {
-                font-size: 20px;
+                font-size: 1.8rem;
             }
 
             .artist h6 {
-                font-size: 16px;
+                font-size: 1.4rem;
                 color: var(--grey);
             }
 

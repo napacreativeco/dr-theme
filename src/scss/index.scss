@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@500;600&display=swap');
-
-@keyframes preorder-flash {
-    0% { opacity: 0.8; }
-    50% { opacity: 1;}
-    100% { opacity: 0.8;}
-}
-
 @import '404.scss';
 
 /* Global */
@@ -16,13 +8,13 @@
 @import 'global/footer.scss';
 @import 'global/breadcrumbs.scss';
 @import 'global/header-with-link.scss';
+@import 'global/sections.scss';
 
 /* Nav */
 @import 'navigation/navbar.scss';
 @import 'navigation/mobilenav.scss';
 
 /* Home */
-@import 'home/section-global.scss';
 @import 'home/hero.scss';
 @import 'home/latest-releases.scss';
 @import 'home/featured-products.scss';

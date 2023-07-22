@@ -1,5 +1,5 @@
 .single-product {
-    padding: 120px 0 0px 0;
+    padding: var(--top-padding) 0 0 0;
 
     #player { max-width: 100% !important; }
     
@@ -7,7 +7,9 @@
 
         padding: 0;
 
-        // Main
+        /*
+            Product
+        */
         .section-one {
             width: 100%;
             max-width: 100%;
@@ -85,78 +87,85 @@
                 padding: 0 0 0 40px;
 
                 h3 {
-                    font-size: 2.8rem;
+                    display: block;
+                    font-size: 2rem;
                     text-transform: uppercase;
-                    margin-bottom: 14px;
+                    letter-spacing: 0px;
+                    margin-bottom: 16px;
                 }
 
             }
 
         }
 
-        // Accordions
+        /*
+            Accordions
+        */
         .section-two {
-            padding: 80px var(--side-padding);
-        }
+            padding: 30px var(--side-padding);
 
-        details summary > * { 
-            display: inline;
-        }
-
-        summary {
-            list-style: none;
-            border-bottom: 1px solid var(--black);
-            padding: 20px 0px 10px 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-transform: uppercase;
-
-            span {
-                font-size: 2.2rem;
+            details summary > * { 
+                display: inline;
             }
-            .indicator {
-                border: 2px solid var(--black);
-                background: transparent;
-                width: 14px;
-                height: 14px;
-                aspect-ratio: 1/1;
-                display: inline-block;
+    
+            summary {
+                list-style: none;
+                border-bottom: 1px solid var(--black);
+                padding: 20px 0px 10px 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                text-transform: uppercase;
+    
+                span {
+                    font-size: 2.2rem;
+                }
+                .indicator {
+                    border: 2px solid var(--black);
+                    background: transparent;
+                    width: 14px;
+                    height: 14px;
+                    aspect-ratio: 1/1;
+                    display: inline-block;
+                }
+    
             }
-
-        }
-
-        .details-body {
-            padding: 40px 0;
-            line-height: 1.5;
-            font-size: 1.82rem;
-        }
-
-        details[open] {
-            .indicator {
+    
+            .details-body {
+                padding: 40px 0;
+                line-height: 1.5;
+                font-size: 1.82rem;
+            }
+    
+            details[open] {
+                .indicator {
+                    background: var(--black);
+                }
+            }
+    
+            summary:hover .indicator {
                 background: var(--black);
             }
         }
 
-        summary:hover .indicator {
-            background: var(--black);
-        }
-        
 
-        // Purchase Options
+
+        /*
+            Purchase Options
+        */
         section#purchase-options {
             background: var(--black);
             color: var(--white);
+            margin: 60px 0 20px 0;
 
             .wrapper {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 200px var(--side-padding);
+                padding: 60px var(--side-padding);
                 width: 100%;
-                max-width: 80%;
                 margin: 0 auto;
             }
 
@@ -164,7 +173,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                align-items: flex-end;
+                align-items: flex-start;
                 width: 100%;
                 font-weight: 100;
                 font-family: var(--type-writer);
@@ -173,10 +182,11 @@
                     text-transform: uppercase;
                     text-decoration: underline;
                     font-size: 2.1rem;
+                    text-decoration: underline;
                 }
 
                 .price {
-                    font-size: 1.6rem;
+                    font-size: 4rem;
                 }
             }
 
@@ -199,6 +209,12 @@
                         text-transform: uppercase;
                         font-size: 2rem;
                         letter-spacing: 1.5px;
+                    }
+
+                    li:hover {
+                        label {
+                            text-decoration: underline;
+                        }
                     }
                 }
 
@@ -238,6 +254,22 @@
             .back-to-shop:hover {
                 text-decoration: underline;
             }
+        }
+
+
+        /*
+            Back to shop
+        */
+        .back-to-shop-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0 60px 0;
+
+            a {
+                font-size: 2rem;
+                text-decoration: underline;
+            }   
         }
  
     }

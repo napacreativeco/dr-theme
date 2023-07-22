@@ -7,6 +7,8 @@ section.latest-releases {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 12px;
+        padding: 0 var(--side-padding);
+        width: 100%;
 
         .release {
 
@@ -44,17 +46,18 @@ section.latest-releases {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                gap: 3px;
+                gap: 6px;
             }
 
             .artist h3 {
                 text-transform: uppercase;
                 padding-bottom: 0px;
-                font-size: 2.4rem;
+                font-size: 1.6rem;
+                color: var(--grey);
             }
 
             .title h4 {
-                color: var(--grey);
+                text-transform: uppercase;
                 font-size: 1.6rem;
             }
 

@@ -6,132 +6,152 @@
 */
 
 .single-artist {
-
-    //padding: 40px var(--side-padding);
     width: 100%;
+    overflow-x: hidden;
 
     .single-artist--wrapper {
-
         padding: 0;
-        display: grid;
-        grid-template-columns: 54% auto;
-        grid-gap: 40px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 24px;
 
-        // Left
-        .left {
-            // height: 100dvh;
-            // overflow-y: scroll;
+        
+        .data {
+            padding: 100px var(--side-padding) 0px var(--side-padding);
+
+        }
+
+        .status {
+            margin: 0 0 10px 0;
             img {
                 width: 100%;
             }
+
+            a {
+                background: var(--grey-light);
+                padding: 4px;
+                border-radius: 4px;
+            }
         }
 
-        // /* width */
-        // .left::-webkit-scrollbar {
-        //     width: 10px;
-        // }
-        
-        // /* Track */
-        // .left::-webkit-scrollbar-track {
-        //     background: #f1f1f1;
-        // }
-        
-        // /* Handle */
-        // .left::-webkit-scrollbar-thumb {
-        //     background: var(--black);
-        // }
-        
-        // /* Handle on hover */
-        // .left::-webkit-scrollbar-thumb:hover {
-        //     background: #555;
-        // }
+        .title {
+            h1 {
+                font-size: 9.1rem;
+                letter-spacing: -0.4rem;
+            }
+        }
 
-        // Right
-        .right {
+        .description {
+            margin: 40px 0 0 0;
+            line-height: 1.8;
+            p {
+                font-size: 1.6rem;
+                margin: 0 0 20px 0;
+            }
+        }
 
-            padding: 120px 20px 0 0;
+        /* 
+            Products
+        */
+        .products {
+            padding: 0 var(--side-padding);
 
-            .status {
-                margin: 0 0 10px 0;
-
-                a {
-                    background: var(--grey-light);
-                    padding: 4px;
-                    border-radius: 4px;
-                }
+            .title h3 {
+                font-size: 2.4rem;
+                text-transform: uppercase;
+                display: inline-block;
+                margin: 0 0 20px 0;
+                border-bottom: var(--border-blk);
             }
 
-            .title {
-                h1 {
-                    font-size: 9.1rem;
-                    letter-spacing: -0.4rem;
-                }
-            }
+            ul.artist-products {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(6, 25%);
+                grid-gap: 10px;
+                width: 100%;
+                transition: var(--quick-transition);
 
-            .description {
-                line-height: 1.4;
-                font-family: var(--type-writer);
-                p {
-                    font-size: 1.2rem;
-                    margin: 0 0 20px 0;
-                }
-            }
+                .item {
+                    .title {
+                        font-size: 2rem;
+                    }
 
-            .products {
-                margin: 40px 0 0 0;
+                    .title:hover {
+                        text-decoration: underline;
+                    }
 
-                .title h3 {
-                    font-size: 2.4rem;
-                    text-transform: uppercase;
-                    display: inline-block;
-                    margin: 0 0 20px 0;
-                    border-bottom: var(--border-blk);
-                }
+                    .vendor, .date, .sku  {
+                        font-size: 1.6rem;
+                        font-family: var(--type-writer);
+                    }
 
-                ul.artist-products {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    display: grid;
-                    grid-template-columns: repeat(4, 25%);
-                    grid-gap: 10px;
-                    width: 100%;
-                    transition: var(--quick-transition);
-        
-    
-                    .item {
-                        .title {
-                            font-size: 1.1rem;
-                            font-family: var(--type-writer);
-                        }
-    
-                        .title:hover {
-                            text-decoration: underline;
-                        }
-    
-                        img {
-                            width: 100%;
-                            margin-bottom: 12px;
-                        }
-        
-                        img:hover {
-                            opacity: 0.6;
-                        }
+                    img {
+                        width: 100%;
+                        margin-bottom: 12px;
                     }
     
-    
+                    img:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        // Right
+        .images {
+
+            padding: 40px var(--side-padding) 0 var(--side-padding);
+
+            .title h3 {
+                font-size: 2.4rem;
+                text-transform: uppercase;
+                display: inline-block;
+                margin: 0 0 20px 0;
+                border-bottom: var(--border-blk);
+            }
+
+            .images-wrapper {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                
+
+                .artist-image {
+                    width: 100%;
+                    height: 300px;
+                    position: relative;
+                    overflow: hidden;
+                    
+                    .view-larger {
+                        background: var(--white);
+                        padding: 4px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        position: absolute;
+                        bottom: 10px;
+                        right: 10px;
+                        opacity: 0;
+                        transform: translateX(200px);
+                        transition: all var(--quick-transition)
+                    }
+                }
+
+                .artist-image:hover {
+
+                    .view-larger {
+                        opacity: 1;
+                        transform: translateX(0px);
+                    }
+                    
                 }
 
             }
 
-
-
         }
 
-
-
     }
-
 }
 
 
@@ -146,18 +166,13 @@
             flex-direction: column;
             grid-gap: var(--side-padding);
             
-
-            .right {
-                padding: 20px 10px;
-
-                .products {
-                    ul.artist-products {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        display: grid;
-                        grid-template-columns: repeat(2, 50%);
-                    }
+            .products {
+                ul.artist-products {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: grid;
+                    grid-template-columns: repeat(2, 50%);
                 }
             }
 

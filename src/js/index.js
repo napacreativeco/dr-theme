@@ -104,5 +104,13 @@
         $('body').removeClass('js-my-cart-open');
     });
 
+    // Product Page Pinning
+    ScrollTrigger.create({
+        trigger: ".single-artist--wrapper",
+        pin: true,
+        start: "top center",
+        end: '100vh'
+    });
+
 
 })(jQuery);
