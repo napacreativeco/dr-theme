@@ -36,7 +36,7 @@
                 {% for image in product.media %}
                   <div class="swiper-slide">
                     <div class="view-larger" data-image="{{ image | image_url: width: 1000 }}">
-                      <span class="">View larger</span>
+                      {% render 'icon--view-more' %}
                     </div>
                     <img src="{{ image | image_url: width: 950 }}" alt="{{ product.title }} by {{ product.vendor }}" />
 
@@ -62,42 +62,11 @@
             </div>
 
             <div class="description">
-              <p>{{ product.description }}</p>
+              <p>{{ product.description | newline_to_br }}</p>
             </div>
           </div>
 
         </div>
-      </section>
-
-      {% comment %} 
-      Accordions
-      {% endcomment %}
-      <section id="product-accordions" class="section-two">
-
-        {% comment %} Shipping &amp; Returns {% endcomment %}
-        <details class="shipping-info accordion">
-          <summary>
-            <span>{{ 'Shipping & Return Policy' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>shipping and return info here</p>
-          </div>
-        </details>
-
-        {% comment %} Care Instructions {% endcomment %}
-        <details class="care-instructions accordion">
-          <summary> 
-            <span>{{ 'Care Instructions' | escape }}</span>
-            <span class="indicator">&nbsp;</span>
-          </summary>
-          
-          <div class="details-body">
-            <p>care instructions here</p>
-          </div>
-        </details>
-
       </section>
 
       {% comment %}
@@ -196,16 +165,50 @@
             {% assign variant = product.selected_or_first_available_variant %}
             <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
           </div>
+
+        </div>
+      </section>
+
+      {% comment %} 
+      Accordions
+      {% endcomment %}
+      <section id="product-accordions" class="section-two">
+
+        {% comment %} Shipping &amp; Returns {% endcomment %}
+        <details class="shipping-info accordion">
+          <summary>
+            <span>{{ 'Shipping & Return Policy' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
           
+          <div class="details-body">
+            <p>shipping and return info here</p>
+          </div>
+        </details>
+
+        {% comment %} Care Instructions {% endcomment %}
+        <details class="care-instructions accordion">
+          <summary> 
+            <span>{{ 'Care Instructions' | escape }}</span>
+            <span class="indicator">&nbsp;</span>
+          </summary>
+          
+          <div class="details-body">
+            <p>care instructions here</p>
+          </div>
+        </details>
+
+      </section>
+      
+    </form>
+
+      {% comment %} BACK TO SHOP {% endcomment %}
+      <section class="back-to-shop-section">
           {% comment %} BACK TO SHOP {% endcomment %}
           <a href="{{ shop.url }}" title="{{ 'Back to Shop' | escape }}" class="back-to-shop">
             {{ 'Back to shop' | escape }}
           </a>
-
-        </div>
       </section>
-      
-    </form>
 
   </div>
 </div>

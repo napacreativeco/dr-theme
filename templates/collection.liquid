@@ -34,6 +34,9 @@
                   {% comment %} Image {% endcomment %}
                   <div class="image" onclick="window.location='{{ product.url }}';">
                     {% if product.featured_image != blank %}
+                      <div class="view-more" data-image="{{ product.featured_image | image_url: width: 1000 }}">   
+                        {% render 'icon--arrow-right' %}
+                      </div>
                       <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" />
                     {% else %}
                       {{ 'image' | placeholder_svg_tag }}
@@ -42,24 +45,21 @@
                   
                   {% comment %} Image {% endcomment %}
                   <div class="data">
-                    <div class="l">
-                      <div class="artist">
-                        <h3>
+                    <div class="artist">
+                      <h3>
+                        {% if product.vendor != 'Dais Records' %}
                           <a href="{{ collection.url }}" title="{{ product.title }} by {{ product.vendor }}">
                             {{ product.vendor }}
                           </a>
-                        </h3>
-                      </div>
-                      <div class="title type-writer">
-                        <h2>
-                          <a href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
-                            {{ product.title }}
-                          </a>
-                        </h2>
-                      </div>
+                        {% endif %}
+                      </h3>
                     </div>
-                    <div class="r">
-                      <div class="price type-writer">{{ product.price | money_without_trailing_zeros }}</div>
+                    <div class="title type-writer">
+                      <h2>
+                        <a href="{{ product.url }}" title="{{ product.title }} by {{ product.vendor }}">
+                          {{ product.title }}
+                        </a>
+                      </h2>
                     </div>
                   </div>
 
@@ -85,3 +85,5 @@
 
   </div>
 </div>
+
+
