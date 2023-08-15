@@ -39,13 +39,27 @@
   {
     "name": "Hero",
     "tag": "section",
-    "class": "hero",
-    "settings": [],
+    "class": "hero-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_hide_hero",
+        "label": "Show / Hide",
+        "default": true
+      }
+    ],
     "blocks": [
       {
-        "type": "collection",
-        "id": "collection",
-        "label": "Collection"
+        "name": "Product",
+        "type": "text",
+        "settings": [
+          {
+            "type": "product_list",
+            "id": "hero_product",
+            "label": "Hero Product",
+            "limit": 1
+          }
+        ]
       }
     ]
   }
