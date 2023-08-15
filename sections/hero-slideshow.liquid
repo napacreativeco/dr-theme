@@ -23,8 +23,6 @@
 
         <div class="swiper-slide">
           <div class="image" style="background: url('{{ block.settings.image | image_url: width: 900 }}'); background-size: cover; background-position: center center;">&nbsp;</div>
-  
-  
         </div>
   
       {% endfor %}
@@ -39,7 +37,7 @@
 
 {% schema %}
   {
-    "name": "Slideshow (Current)",
+    "name": "Slideshow (New)",
     "tag": "section",
     "class": "slideshow",
     "settings": [],
@@ -49,32 +47,9 @@
         "type": "slide",
         "settings": [
           {
-            "type": "checkbox",
-            "id": "preorder",
-            "label": "Preorder"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          },
-          {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Sub-Title"
-          }, {
-            "type": "url",
-            "id": "link-destination",
-            "label": "Link URL"
-          }, {
-            "type": "text",
-            "id": "link-text",
-            "label": "Link Text"
+            "type": "collection",
+            "id": "hero_collection",
+            "label": "Collection"
           }
         ]
       }
